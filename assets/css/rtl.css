@@ -1,0 +1,81 @@
+/* ==========================================================================
+   FreshAisle — RTL Support (Logical Flow, Unmirrored Photos & Brand, Physical-Left Drawer)
+   ========================================================================== */
+
+html[dir="rtl"] body {
+  direction: rtl;
+}
+
+/* Keep brand mark, photography, numeric prices and pack sizes cleanly formatted in RTL */
+html[dir="rtl"] .brand-mark,
+html[dir="rtl"] .brand-mark__icon,
+html[dir="rtl"] img {
+  direction: ltr;
+  transform: none;
+}
+
+html[dir="rtl"] .product-card__pack,
+html[dir="rtl"] .product-card__price,
+html[dir="rtl"] .product-card__mrp,
+html[dir="rtl"] .cart-row__total,
+html[dir="rtl"] .summary-total,
+html[dir="rtl"] .staple-card__meta,
+html[dir="rtl"] .staple-card__price,
+html[dir="rtl"] .basket-summary-panel__total {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Mirror directional hero scrim for RTL readability */
+html[dir="rtl"] .hero-scrim {
+  background: linear-gradient(
+    270deg,
+    rgba(16, 20, 17, 0.88) 0%,
+    rgba(16, 20, 17, 0.66) 50%,
+    rgba(16, 20, 17, 0.25) 100%
+  );
+}
+
+@media (max-width: 1024px) {
+  html[dir="rtl"] .home2-hero__media::after,
+  html[dir="rtl"] .page-hero--banner-mobile .page-hero__media::after {
+    background: linear-gradient(
+      270deg,
+      rgba(16, 20, 17, 0.90) 0%,
+      rgba(16, 20, 17, 0.72) 56%,
+      rgba(16, 20, 17, 0.45) 100%
+    );
+  }
+}
+
+/* Preserve physical-left drawer behavior in BOTH LTR and RTL */
+html[dir="rtl"] .mobile-drawer,
+html[dir="rtl"] .dash-drawer {
+  left: 0;
+  right: auto;
+  border-left: 0;
+  border-right: 1px solid var(--border-subtle);
+  transform: translateX(-100%);
+}
+
+html[dir="rtl"] .mobile-drawer.is-open,
+html[dir="rtl"] .dash-drawer.is-open {
+  transform: translateX(0);
+}
+
+/* Flip directional arrow icons when appropriate */
+html[dir="rtl"] .icon-directional {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .v-select-panel {
+  direction: rtl;
+}
+
+html[dir="rtl"] .fa-toast {
+  transform: translate(50%, 18px);
+}
+
+html[dir="rtl"] .fa-toast.is-visible {
+  transform: translate(50%, 0);
+}

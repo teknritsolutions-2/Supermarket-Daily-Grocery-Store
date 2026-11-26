@@ -1,0 +1,117 @@
+/* ==========================================================================
+   FreshAisle — Dark Mode (Genuinely Dark Charcoal, Not Green-Tinted Light Mode)
+   ========================================================================== */
+
+html[data-theme="dark"] {
+  --bg-page: #101411;
+  --bg-surface: #171D18;
+  --bg-surface-muted: #1C231D;
+  --bg-elevated: #222B24;
+  --bg-dark-band: #141A15;
+
+  --text-primary: #F2F4F0;
+  --text-secondary: #C1C9BE;
+  --text-muted: #98A296;
+  --text-on-dark: #F2F4F0;
+  --text-on-dark-muted: #C1C9BE;
+
+  --accent: #9AC88F;
+  --accent-hover: #B2DA9E;
+  --accent-soft: rgba(154, 200, 143, 0.14);
+  --accent-border: rgba(154, 200, 143, 0.42);
+
+  --promo: #F07E5A;
+  --promo-soft: rgba(240, 126, 90, 0.15);
+
+  --border-subtle: rgba(255, 255, 255, 0.11);
+  --border-strong: rgba(255, 255, 255, 0.23);
+  --header-bg: rgba(16, 20, 17, 0.92);
+
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.36);
+  --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.46);
+  --shadow-lg: 0 22px 54px rgba(0, 0, 0, 0.65);
+}
+
+html[data-theme="dark"] .btn--primary {
+  background-color: #9AC88F;
+  border-color: #9AC88F;
+  color: #101411;
+}
+
+html[data-theme="dark"] .btn--primary:hover {
+  background-color: #B2DA9E;
+  border-color: #B2DA9E;
+}
+
+html[data-theme="dark"] .cart-pill {
+  background-color: #9AC88F;
+  color: #101411;
+}
+
+html[data-theme="dark"] .cart-pill:hover {
+  background-color: #B2DA9E;
+}
+
+html[data-theme="dark"] .cart-pill__count {
+  background-color: #101411;
+  color: #9AC88F;
+}
+
+html[data-theme="dark"] .qty-stepper {
+  border-color: #9AC88F;
+  background-color: rgba(154, 200, 143, 0.14);
+}
+
+html[data-theme="dark"] .qty-stepper__btn {
+  color: #B2DA9E;
+}
+
+html[data-theme="dark"] .qty-stepper__btn:hover {
+  background-color: #9AC88F;
+  color: #101411;
+}
+
+html[data-theme="dark"] .product-card__badge {
+  background-color: #D8562E;
+  color: #FFFFFF;
+}
+
+html[data-theme="dark"] .chip-tab.is-active,
+html[data-theme="dark"] .chip-tab[aria-pressed="true"] {
+  background-color: #9AC88F;
+  border-color: #9AC88F;
+  color: #101411;
+}
+
+html[data-theme="dark"] .v-select-option[aria-selected="true"] {
+  color: #9AC88F;
+}
+
+html[data-theme="dark"] .variant-chip.is-selected {
+  color: #B2DA9E;
+}
+
+html[data-theme="dark"] .form-error {
+  color: #F87171;
+}
+
+html[data-theme="dark"] .form-field.has-error .form-input,
+html[data-theme="dark"] .form-field.has-error .form-textarea,
+html[data-theme="dark"] .form-field.has-error .v-select__trigger {
+  border-color: #F87171;
+}
+
+html[data-theme="dark"] input[type="date"],
+html[data-theme="dark"] input[type="time"] {
+  color-scheme: dark;
+}
+
+html[data-theme="dark"] .fa-toast {
+  background-color: #2A352C;
+  border: 1px solid var(--border-strong);
+}
+
+html[data-theme="dark"] .btn--danger-outline {
+  color: #FCA5A5;
+  border-color: rgba(252, 165, 165, 0.35);
+}

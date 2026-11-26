@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="site-root" content=".." />
+  <title>Customer Dashboard | FreshAisle</title>
+  <meta name="description" content="Manage FreshAisle shopping lists, shared cart items, demonstration home delivery orders, order status timeline, saved addresses, and preferences." />
+  <link rel="icon" href="../assets/icons/favicon.svg?v=20261126" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/css/fonts.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/products.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/cart.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/dashboard.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/rtl.css?v=20261126" />
+  <script>
+    (function(){try{var t=localStorage.getItem('freshaisle_theme');var d=localStorage.getItem('freshaisle_dir');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);if(d==='rtl'||d==='ltr')document.documentElement.setAttribute('dir',d);}catch(e){}})();
+  </script>
+</head>
+<body data-page="dashboard">
+  <a class="skip-link" href="#dashMainContent">Skip to dashboard content</a>
+
+  <div class="dash-mobile-header">
+    <div class="header-left">
+      <button type="button" class="mobile-menu-btn" id="dashDrawerOpen" aria-label="Open dashboard menu" aria-controls="dashDrawer" style="display:inline-flex">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <a class="brand-mark" href="../index.html">
+        <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126#freshaisle-mark"></use></svg>
+        <span class="brand-mark__text">Fresh<span>Aisle</span></span>
+      </a>
+    </div>
+    <a class="cart-pill" href="./cart.html" aria-label="Shopping Cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6 5 3H2"/></svg>
+      <span class="cart-pill__count js-cart-count">0</span>
+    </a>
+  </div>
+
+  <div class="drawer-backdrop" id="dashDrawerBackdrop" aria-hidden="true"></div>
+  <aside class="dash-drawer" id="dashDrawer" aria-label="Dashboard Navigation" aria-hidden="true">
+    <div class="dash-drawer__head">
+      <a class="brand-mark" href="../index.html">
+        <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126#freshaisle-mark"></use></svg>
+        <span class="brand-mark__text">Fresh<span>Aisle</span></span>
+      </a>
+      <button type="button" class="mobile-drawer__close" id="dashDrawerClose" aria-label="Close dashboard navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <nav class="dash-nav" aria-label="Mobile dashboard sections">
+      <button type="button" class="dash-nav__btn is-active" data-dash-nav="overview" aria-current="page"><span>Overview</span></button>
+      <button type="button" class="dash-nav__btn" data-dash-nav="lists"><span>Shopping Lists</span><span class="dash-nav__badge js-dash-lists-badge">0</span></button>
+      <button type="button" class="dash-nav__btn" data-dash-nav="cart"><span>My Cart</span><span class="dash-nav__badge js-dash-cart-badge">0</span></button>
+      <button type="button" class="dash-nav__btn" data-dash-nav="orders"><span>My Orders</span><span class="dash-nav__badge js-dash-orders-badge">0</span></button>
+      <button type="button" class="dash-nav__btn" data-dash-nav="track"><span>Track Order</span></button>
+      <button type="button" class="dash-nav__btn" data-dash-nav="addresses"><span>Saved Addresses</span></button>
+      <button type="button" class="dash-nav__btn" data-dash-nav="profile"><span>Profile</span></button>
+    </nav>
+    <div class="dash-sidebar__foot">
+      <a class="btn btn--outline btn--sm" href="./products.html">Shop Products</a>
+      <a class="btn btn--outline btn--sm" href="../index.html">Back to Storefront</a>
+      <div class="dash-tools">
+        <button type="button" class="icon-control js-theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+        </button>
+        <button type="button" class="icon-control js-dir-toggle" aria-label="Switch text direction to RTL" aria-pressed="false">
+          <span class="js-dir-label">RTL</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="dash-shell">
+    <aside class="dash-sidebar" aria-label="Customer Dashboard Navigation">
+      <a class="brand-mark" href="../index.html">
+        <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126#freshaisle-mark"></use></svg>
+        <span class="brand-mark__text">Fresh<span>Aisle</span></span>
+      </a>
+      <nav class="dash-nav">
+        <button type="button" class="dash-nav__btn is-active" data-dash-nav="overview" aria-current="page"><span>Overview</span></button>
+        <button type="button" class="dash-nav__btn" data-dash-nav="lists"><span>Shopping Lists</span><span class="dash-nav__badge js-dash-lists-badge">0</span></button>
+        <button type="button" class="dash-nav__btn" data-dash-nav="cart"><span>My Cart</span><span class="dash-nav__badge js-dash-cart-badge">0</span></button>
+        <button type="button" class="dash-nav__btn" data-dash-nav="orders"><span>My Orders</span><span class="dash-nav__badge js-dash-orders-badge">0</span></button>
+        <button type="button" class="dash-nav__btn" data-dash-nav="track"><span>Track Order</span></button>
+        <button type="button" class="dash-nav__btn" data-dash-nav="addresses"><span>Saved Addresses</span></button>
+        <button type="button" class="dash-nav__btn" data-dash-nav="profile"><span>Profile</span></button>
+      </nav>
+      <div class="dash-sidebar__foot">
+        <a class="btn btn--primary btn--sm" href="./products.html">Browse Groceries</a>
+        <a class="btn btn--outline btn--sm" href="../index.html">Storefront Home</a>
+        <div class="dash-tools">
+          <button type="button" class="icon-control js-theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+          </button>
+          <button type="button" class="icon-control js-dir-toggle" aria-label="Switch text direction to RTL" aria-pressed="false">
+            <span class="js-dir-label">RTL</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="dash-main" id="dashMainContent">
+      <!-- 1. Overview -->
+      <section class="dash-section is-active" id="sec-overview">
+        <div class="dash-header">
+          <div>
+            <p class="section-kicker">Customer Dashboard</p>
+            <h1>Your Grocery Workspace</h1>
+          </div>
+          <a class="btn btn--primary" href="./products.html">+ Add Groceries</a>
+        </div>
+        <div id="dashOverviewContent"></div>
+      </section>
+
+      <!-- 2. Shopping Lists -->
+      <section class="dash-section" id="sec-lists">
+        <div class="dash-header">
+          <div>
+            <p class="section-kicker">Reusable Lists</p>
+            <h1>Shopping Lists</h1>
+          </div>
+        </div>
+        <div class="lists-layout">
+          <div class="lists-sidebar-card">
+            <form id="dashCreateListForm" style="display:grid;gap:8px">
+              <label for="dashNewListName" class="form-label">New Shopping List</label>
+              <input id="dashNewListName" type="text" class="form-input" placeholder="e.g. Monthly Pantry" maxlength="48" required />
+              <button type="submit" class="btn btn--primary btn--sm">Create List</button>
+            </form>
+            <div id="dashListsSidebar" style="display:grid;gap:8px"></div>
+          </div>
+          <div id="dashListDetail"></div>
+        </div>
+      </section>
+
+      <!-- 3. My Cart -->
+      <section class="dash-section" id="sec-cart">
+        <div class="dash-header">
+          <div>
+            <p class="section-kicker">Shared Basket</p>
+            <h1>My Cart</h1>
+          </div>
+          <a class="btn btn--outline" href="./cart.html">Open Full Cart Page</a>
+        </div>
+        <div id="dashCartContent"></div>
+      </section>
+
+      <!-- 4. My Orders -->
+      <section class="dash-section" id="sec-orders">
+        <div class="dash-header">
+          <div>
+            <p class="section-kicker">Immutable Snapshots</p>
+            <h1>My Orders</h1>
+          </div>
+          <a class="btn btn--outline" href="./checkout.html">Place New Demo Order</a>
+        </div>
+        <div id="dashOrdersContent"></div>
+      </section>
+
+      <!-- 5. Track Order -->
+      <section class="dash-section" id="sec-track">
+        <div class="dash-header">
+          <div>
+            <p class="section-kicker">Order Timeline</p>
+            <h1>Track Order</h1>
+          </div>
+        </div>
+        <div id="dashTrackContent"></div>
+      </section>
+
+      <!-- 6. Saved Addresses -->
+      <section class="dash-section" id="sec-addresses">
+        <div class="dash-header">
+          <div>
+            <p class="section-kicker">Browser-Local Storage</p>
+            <h1>Saved Addresses</h1>
+          </div>
+        </div>
+        <div class="notice-box" style="margin-bottom:18px">
+          <strong>Local Storage Notice:</strong> Addresses and demo orders are saved strictly in this browser's <code>localStorage</code>. Use demo details only and clear local data anytime below.
+        </div>
+        <div class="dash-panel">
+          <div class="dash-panel__head"><h2>Stored Delivery Addresses</h2></div>
+          <div class="address-grid" id="dashAddressesList"></div>
+        </div>
+        <div class="dash-panel">
+          <div class="dash-panel__head"><h2>Add Optional Sample Address</h2></div>
+          <form id="dashAddressForm" class="form-grid">
+            <div class="form-field">
+              <label for="addrLabel" class="form-label">Address Label</label>
+              <input id="addrLabel" type="text" class="form-input" placeholder="e.g. Home (Demo)" required />
+            </div>
+            <div class="form-field">
+              <label for="addrRecipient" class="form-label">Recipient Name</label>
+              <input id="addrRecipient" type="text" class="form-input" required />
+            </div>
+            <div class="form-field">
+              <label for="addrPhone" class="form-label">Phone</label>
+              <input id="addrPhone" type="tel" class="form-input" maxlength="10" required />
+            </div>
+            <div class="form-field">
+              <label for="addrPin" class="form-label">6-Digit PIN</label>
+              <input id="addrPin" type="text" class="form-input" maxlength="6" required />
+            </div>
+            <div class="form-field">
+              <label for="addrLine1" class="form-label">Street / Flat</label>
+              <input id="addrLine1" type="text" class="form-input" required />
+            </div>
+            <div class="form-field">
+              <label for="addrArea" class="form-label">Locality &amp; City</label>
+              <input id="addrArea" type="text" class="form-input" required />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="auth-check"><input id="addrDefault" type="checkbox" checked /><span>Set as default prefill for Checkout</span></label>
+            </div>
+            <div class="form-field form-field--full" style="display:flex;flex-direction:row;flex-wrap:wrap;gap:12px">
+              <button type="submit" class="btn btn--primary">Save Address</button>
+              <button type="button" class="btn btn--danger-outline" id="dashClearLocalData">Clear All Browser Data</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- 7. Profile -->
+      <section class="dash-section" id="sec-profile">
+        <div class="dash-header">
+          <div>
+            <p class="section-kicker">Preferences</p>
+            <h1>Customer Profile</h1>
+          </div>
+        </div>
+        <div class="dash-panel">
+          <div class="dash-panel__head"><h2>Local Shopping Preferences</h2></div>
+          <p class="text-muted" style="margin-bottom:16px">Editable local preferences used to prefill demo checkout. Passwords and authentication tokens are never stored here.</p>
+          <form id="dashProfileForm" class="form-grid">
+            <div class="form-field">
+              <label for="profName" class="form-label">Display Name</label>
+              <input id="profName" type="text" class="form-input" />
+            </div>
+            <div class="form-field">
+              <label for="profEmail" class="form-label">Email</label>
+              <input id="profEmail" type="email" class="form-input" />
+            </div>
+            <div class="form-field">
+              <label for="profPhone" class="form-label">Phone</label>
+              <input id="profPhone" type="tel" class="form-input" maxlength="10" />
+            </div>
+            <div class="form-field">
+              <label for="profSlot" class="form-label">Preferred Delivery Slot</label>
+              <select id="profSlot" data-v-select></select>
+            </div>
+            <div class="form-field form-field--full">
+              <label for="profSub" class="form-label">Default Substitution Preference</label>
+              <select id="profSub" data-v-select></select>
+            </div>
+            <div class="form-field form-field--full">
+              <button type="submit" class="btn btn--primary" style="width:fit-content">Save Preferences</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script defer src="../assets/js/site-config.js?v=20261126"></script>
+  <script defer src="../assets/js/products-data.js?v=20261126"></script>
+  <script defer src="../assets/js/store.js?v=20261126"></script>
+  <script defer src="../assets/js/main.js?v=20261126"></script>
+  <script defer src="../assets/js/dashboard.js?v=20261126"></script>
+</body>
+</html>

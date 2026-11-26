@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <symbol id="freshaisle-mark" viewBox="0 0 40 40">
+    <rect x="2" y="2" width="36" height="36" rx="9" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="1.8"/>
+    <path d="M11.5 21h17l-1.6 8.5a1.8 1.8 0 0 1-1.77 1.5H14.87a1.8 1.8 0 0 1-1.77-1.5L11.5 21Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M10 21h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path d="M20 21v-7.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+    <path d="M20 15.6c0-3.8 2.9-6.6 6.8-6.6 0 3.8-2.9 6.6-6.8 6.6Z" fill="currentColor"/>
+    <path d="M20 17.2c0-3.2-2.5-5.6-5.9-5.6 0 3.2 2.5 5.6 5.9 5.6Z" fill="currentColor" fill-opacity="0.58"/>
+  </symbol>
+</svg>

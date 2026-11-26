@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="site-root" content=".." />
+  <title>Your Week, Sorted — Home 2 | FreshAisle</title>
+  <meta name="description" content="Organize weekly grocery shopping with FreshAisle's interactive basket builder, meal ingredient collections, household bundles, and list planner." />
+  <link rel="icon" href="../assets/icons/favicon.svg?v=20261126" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/css/fonts.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/products.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/rtl.css?v=20261126" />
+  <script>
+    (function(){try{var t=localStorage.getItem('freshaisle_theme');var d=localStorage.getItem('freshaisle_dir');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);if(d==='rtl'||d==='ltr')document.documentElement.setAttribute('dir',d);}catch(e){}})();
+  </script>
+</head>
+<body data-page="home2">
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-top">
+        <div class="header-left">
+          <button type="button" class="mobile-menu-btn" id="mobileMenuOpen" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+          <a class="brand-mark" href="../index.html" aria-label="FreshAisle Home">
+            <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126#freshaisle-mark"></use></svg>
+            <span class="brand-mark__text">Fresh<span>Aisle</span></span>
+          </a>
+        </div>
+        <form class="header-search js-header-search-form" role="search" aria-label="Search groceries">
+          <label for="desktopSearchInput" class="sr-only">Search grocery products</label>
+          <input id="desktopSearchInput" type="search" placeholder="Search apples, milk, rice, atta, dal..." autocomplete="off" />
+          <button type="submit" class="header-search__btn" aria-label="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          </button>
+        </form>
+        <div class="header-utilities">
+          <a class="header-util-link" href="./login.html">Login</a>
+          <a class="header-util-link" href="./dashboard.html">Dashboard</a>
+          <button type="button" class="icon-control js-theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+          </button>
+          <button type="button" class="icon-control js-dir-toggle" aria-label="Switch text direction to RTL" aria-pressed="false">
+            <span class="js-dir-label">RTL</span>
+          </button>
+          <a class="cart-pill" href="./cart.html" aria-label="Shopping Cart">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6 5 3H2"/></svg>
+            <span class="cart-pill__label">Cart</span>
+            <span class="cart-pill__count js-cart-count">0</span>
+          </a>
+        </div>
+      </div>
+      <div class="mobile-search-bar">
+        <form class="header-search js-header-search-form" role="search" aria-label="Mobile grocery search">
+          <label for="mobileSearchInput" class="sr-only">Search grocery products</label>
+          <input id="mobileSearchInput" type="search" placeholder="Search fruits, vegetables, dairy, pantry..." autocomplete="off" />
+          <button type="submit" class="header-search__btn" aria-label="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="header-nav-bar">
+      <div class="container header-nav">
+        <nav aria-label="Main navigation">
+          <ul class="nav-list">
+            <li class="nav-dropdown">
+              <button type="button" class="nav-dropdown__trigger" aria-expanded="false" aria-haspopup="true">
+                <span>Home</span>
+                <svg class="nav-dropdown__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="nav-dropdown__menu" role="menu">
+                <a class="nav-dropdown__item" href="../index.html" role="menuitem">Home 1</a>
+                <a class="nav-dropdown__item is-active" href="./home2.html" role="menuitem">Home 2</a>
+              </div>
+            </li>
+            <li><a class="nav-link" href="./about.html">About</a></li>
+            <li><a class="nav-link" href="./products.html">Products</a></li>
+            <li><a class="nav-link" href="./delivery.html">Delivery Info</a></li>
+            <li><a class="nav-link" href="./offers.html">Offers</a></li>
+            <li><a class="nav-link" href="./contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <p class="header-delivery-hint">Plan weekly baskets &amp; save items directly to lists</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation" aria-hidden="true">
+    <div class="mobile-drawer__head">
+      <a class="brand-mark" href="../index.html">
+        <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126#freshaisle-mark"></use></svg>
+        <span class="brand-mark__text">Fresh<span>Aisle</span></span>
+      </a>
+      <button type="button" class="mobile-drawer__close" id="mobileMenuClose" aria-label="Close navigation menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-drawer__body">
+      <div>
+        <p class="mobile-drawer__group-label">Storefront</p>
+        <nav class="mobile-drawer__nav">
+          <a class="mobile-drawer__link" href="../index.html">Home 1</a>
+          <a class="mobile-drawer__link is-active" href="./home2.html">Home 2</a>
+          <a class="mobile-drawer__link" href="./about.html">About</a>
+          <a class="mobile-drawer__link" href="./products.html">Products</a>
+          <a class="mobile-drawer__link" href="./offers.html">Offers</a>
+          <a class="mobile-drawer__link" href="./delivery.html">Delivery Info</a>
+          <a class="mobile-drawer__link" href="./contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <p class="mobile-drawer__group-label">Customer</p>
+        <nav class="mobile-drawer__nav">
+          <a class="mobile-drawer__link" href="./dashboard.html">Dashboard</a>
+          <a class="mobile-drawer__link" href="./cart.html">Cart</a>
+          <a class="mobile-drawer__link" href="./login.html">Login</a>
+          <a class="mobile-drawer__link" href="./signup.html">Create Account</a>
+        </nav>
+      </div>
+      <div class="mobile-drawer__tools">
+        <button type="button" class="icon-control js-theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+        </button>
+        <button type="button" class="icon-control js-dir-toggle" aria-label="Switch text direction to RTL" aria-pressed="false">
+          <span class="js-dir-label">RTL</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <main id="mainContent">
+    <!-- 1. Home 2 Split / Mobile-Banner Hero -->
+    <section class="home2-hero">
+      <div class="container">
+        <div class="home2-hero__grid">
+          <div class="home2-hero__content">
+            <p class="section-kicker">Weekly Meal &amp; Grocery Planner</p>
+            <h1 class="home2-hero__title">Your Week, Sorted</h1>
+            <p class="home2-hero__lead">Organize weekday breakfasts, packed lunches, dinner prep, and pantry refills in one calm workflow. Select meal ingredients below or build reusable lists for faster weekly restocking.</p>
+            <div class="home2-quick-links">
+              <a class="home2-quick-link" href="#weeklyBuilder"><span>Build Weekly Basket</span><span>&rarr;</span></a>
+              <a class="home2-quick-link" href="./products.html"><span>Full Catalogue (48)</span><span>&rarr;</span></a>
+              <a class="home2-quick-link" href="./dashboard.html#lists"><span>My Shopping Lists</span><span>&rarr;</span></a>
+              <a class="home2-quick-link" href="./offers.html"><span>Weekly Savings</span><span>&rarr;</span></a>
+            </div>
+          </div>
+          <div class="home2-hero__media">
+            <img src="../assets/images/lifestyle/home2-hero.jpg" alt="Kitchen counter prepared with fresh vegetables and daily cooking ingredients" width="1200" height="800" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Interactive Weekly Basket Builder -->
+    <section class="section section--muted" id="weeklyBuilder">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head__copy">
+            <p class="section-kicker">Interactive Selector</p>
+            <h2 class="section-title">Build Your Weekly Grocery Basket</h2>
+            <p class="section-lead">Switch between meal collections, tick off what you already have in the kitchen, and send the rest to your Cart or Shopping List.</p>
+          </div>
+        </div>
+        <div class="basket-builder">
+          <div>
+            <div class="basket-builder__tabs" id="home2BuilderTabs">
+              <button type="button" class="chip-tab is-active" data-meal-tab="breakfast" aria-pressed="true">Breakfast</button>
+              <button type="button" class="chip-tab" data-meal-tab="lunch" aria-pressed="false">Everyday Lunch</button>
+              <button type="button" class="chip-tab" data-meal-tab="dinner" aria-pressed="false">Quick Dinner</button>
+              <button type="button" class="chip-tab" data-meal-tab="teatime" aria-pressed="false">Tea-Time Snacks</button>
+            </div>
+            <div class="basket-checklist" id="home2BuilderChecklist"></div>
+          </div>
+          <div class="basket-summary-panel">
+            <h3>Selected Basket Summary</h3>
+            <p class="text-muted" id="home2BuilderCount">0 items selected</p>
+            <div>
+              <span class="text-muted" style="font-size:0.875rem">Estimated Basket Subtotal</span>
+              <div class="basket-summary-panel__total" id="home2BuilderTotal">₹0</div>
+            </div>
+            <button type="button" class="btn btn--primary" id="home2BuilderAddCart">Add Selected to Cart</button>
+            <button type="button" class="btn btn--outline" id="home2BuilderAddList">Save Selected to Shopping List</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Breakfast & Morning Essentials -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head__copy">
+            <p class="section-kicker">Morning Table</p>
+            <h2 class="section-title">Breakfast &amp; Morning Essentials</h2>
+            <p class="section-lead">Whole-wheat loaves, chilled milk, farm eggs, and rolled oats to keep weekday mornings effortless.</p>
+          </div>
+          <a class="text-link" href="./products.html?category=bakery">Shop Bakery &amp; Dairy</a>
+        </div>
+        <div class="product-grid" id="home2BreakfastGrid"></div>
+      </div>
+    </section>
+
+    <!-- 4. Fresh Fruits & Seasonal Produce -->
+    <section class="section section--surface">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head__copy">
+            <p class="section-kicker">Crisp Harvest</p>
+            <h2 class="section-title">Fresh Fruits &amp; Seasonal Produce</h2>
+            <p class="section-lead">Citrus, seedless grapes, crunchy carrots, and salad cucumbers for lunchboxes and evening snacks.</p>
+          </div>
+          <a class="text-link" href="./products.html?category=fruits">All Fruits &amp; Veg</a>
+        </div>
+        <div class="product-grid" id="home2ProduceGrid"></div>
+      </div>
+    </section>
+
+    <!-- 5. Lunch & Dinner Ingredient Feature -->
+    <section class="section">
+      <div class="container">
+        <div class="split-panel">
+          <div class="split-panel__media">
+            <img src="../assets/images/lifestyle/home2-lunch-dinner.jpg" alt="Fresh vegetables and spices prepared on kitchen counter for dinner" loading="lazy" width="800" height="600" />
+          </div>
+          <div class="split-panel__copy">
+            <p class="section-kicker">Weekday Kitchen</p>
+            <h2>Lunch &amp; Dinner Ingredient Collections</h2>
+            <p>Pair unpolished toor dal, aged basmati rice, and fresh malai paneer with crisp bell peppers, vine tomatoes, and red onions without scrolling through endless aisles.</p>
+            <p>Use the meal tabs above or open the full searchable catalogue to filter specifically by grains, lentils, or chilled dairy.</p>
+            <div class="hero-actions">
+              <a class="btn btn--primary" href="./products.html?category=pantry">Explore Pantry &amp; Grains</a>
+              <a class="btn btn--outline" href="./products.html?category=vegetables">Shop Vegetables</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Pantry Cupboard Restock -->
+    <section class="section section--muted">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head__copy">
+            <p class="section-kicker">Monthly Staples</p>
+            <h2 class="section-title">Pantry Cupboard Restock</h2>
+            <p class="section-lead">Core household staples in 1 kg and 5 kg family packs.</p>
+          </div>
+        </div>
+        <div class="product-grid" id="home2PantryGrid"></div>
+      </div>
+    </section>
+
+    <!-- 7. Household Grocery Bundles -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head__copy">
+            <p class="section-kicker">Curated Combos</p>
+            <h2 class="section-title">Household Grocery Bundles</h2>
+            <p class="section-lead">Pre-grouped baskets calculated dynamically from current catalogue prices.</p>
+          </div>
+          <a class="text-link" href="./offers.html#bundles">View All Bundles</a>
+        </div>
+        <div class="bundle-grid" id="home2BundlesGrid"></div>
+      </div>
+    </section>
+
+    <!-- 8. Weekly Savings Collection -->
+    <section class="section section--surface">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head__copy">
+            <p class="section-kicker">Savings Spotlight</p>
+            <h2 class="section-title">Weekly Savings Collection</h2>
+            <p class="section-lead">Featured price reductions across fruit, vegetables, dairy, and pantry staples.</p>
+          </div>
+          <a class="text-link" href="./offers.html">See All Offers</a>
+        </div>
+        <div class="product-grid" id="home2SavingsGrid"></div>
+      </div>
+    </section>
+
+    <!-- 9. Shopping-List Planner & Delivery Invitation -->
+    <section class="section">
+      <div class="container">
+        <div class="split-panel">
+          <div class="split-panel__copy">
+            <p class="section-kicker">Dashboard Planner</p>
+            <h2>Keep Your Lists Ready for Every Delivery Window</h2>
+            <p>Save separate lists for Weekly Groceries, Monthly Pantry, or Breakfast Essentials inside the Customer Dashboard. Check off what is already in your fridge and send remaining items straight to Cart.</p>
+            <div class="hero-actions">
+              <a class="btn btn--primary" href="./dashboard.html#lists">Open Shopping Lists</a>
+              <a class="btn btn--outline" href="./delivery.html">Review Delivery Windows</a>
+            </div>
+          </div>
+          <div class="split-panel__media">
+            <img src="../assets/images/lifestyle/home2-planner.jpg" alt="Freshly packed wooden crate and basket of weekly groceries" loading="lazy" width="800" height="600" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand-mark" href="../index.html">
+            <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126#freshaisle-mark"></use></svg>
+            <span class="brand-mark__text">Fresh<span>Aisle</span></span>
+          </a>
+          <p class="footer-brand-desc">Contemporary neighborhood supermarket storefront with shared frontend cart, shopping lists, demo checkout, and order tracking.</p>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Explore</h3>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home 1</a></li>
+            <li><a href="./home2.html">Home 2</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./offers.html">Offers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Categories</h3>
+          <ul class="footer-links">
+            <li><a href="./products.html?category=fruits">Fruits</a></li>
+            <li><a href="./products.html?category=vegetables">Vegetables</a></li>
+            <li><a href="./products.html?category=dairy">Dairy &amp; Eggs</a></li>
+            <li><a href="./products.html?category=pantry">Pantry Essentials</a></li>
+            <li><a href="./products.html?category=bakery">Bakery</a></li>
+            <li><a href="./products.html?category=beverages">Snacks &amp; Beverages</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Shopping &amp; Help</h3>
+          <ul class="footer-links">
+            <li><a href="./delivery.html">Delivery Info</a></li>
+            <li><a href="./cart.html">Shopping Cart</a></li>
+            <li><a href="./checkout.html">Checkout</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Customer Account</h3>
+          <ul class="footer-links">
+            <li><a href="./dashboard.html">Customer Dashboard</a></li>
+            <li><a href="./dashboard.html#lists">Shopping Lists</a></li>
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./signup.html">Create Account</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>FreshAisle Supermarket · Frontend Storefront &amp; Customer Dashboard</span>
+        <span>Illustrative INR pricing &amp; browser-local demonstration state</span>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script defer src="../assets/js/site-config.js?v=20261126"></script>
+  <script defer src="../assets/js/products-data.js?v=20261126"></script>
+  <script defer src="../assets/js/offers-data.js?v=20261126"></script>
+  <script defer src="../assets/js/store.js?v=20261126"></script>
+  <script defer src="../assets/js/main.js?v=20261126"></script>
+  <script defer src="../assets/js/pages.js?v=20261126"></script>
+</body>
+</html>

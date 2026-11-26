@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="site-root" content=".." />
+  <title>Checkout — Home Delivery Demo | FreshAisle</title>
+  <meta name="description" content="Review delivery details, pick a delivery slot, and place a local demonstration home delivery order on FreshAisle." />
+  <link rel="icon" href="../assets/icons/favicon.svg?v=20261126" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/css/fonts.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/cart.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/rtl.css?v=20261126" />
+  <script>
+    (function(){try{var t=localStorage.getItem('freshaisle_theme');var d=localStorage.getItem('freshaisle_dir');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);if(d==='rtl'||d==='ltr')document.documentElement.setAttribute('dir',d);}catch(e){}})();
+  </script>
+</head>
+<body data-page="checkout">
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-top">
+        <div class="header-left">
+          <button type="button" class="mobile-menu-btn" id="mobileMenuOpen" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+          <a class="brand-mark" href="../index.html" aria-label="FreshAisle Home">
+            <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126#freshaisle-mark"></use></svg>
+            <span class="brand-mark__text">Fresh<span>Aisle</span></span>
+          </a>
+        </div>
+        <form class="header-search js-header-search-form" role="search" aria-label="Search groceries">
+          <label for="desktopSearchInput" class="sr-only">Search grocery products</label>
+          <input id="desktopSearchInput" type="search" placeholder="Search apples, milk, rice, atta, dal..." autocomplete="off" />
+          <button type="submit" class="header-search__btn" aria-label="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          </button>
+        </form>
+        <div class="header-utilities">
+          <a class="header-util-link" href="./login.html">Login</a>
+          <a class="header-util-link" href="./dashboard.html">Dashboard</a>
+          <button type="button" class="icon-control js-theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+          </button>
+          <button type="button" class="icon-control js-dir-toggle" aria-label="Switch text direction to RTL" aria-pressed="false">
+            <span class="js-dir-label">RTL</span>
+          </button>
+          <a class="cart-pill" href="./cart.html" aria-label="Shopping Cart">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6 5 3H2"/></svg>
+            <span class="cart-pill__label">Cart</span>
+            <span class="cart-pill__count js-cart-count">0</span>
+          </a>
+        </div>
+      </div>
+      <div class="mobile-search-bar">
+        <form class="header-search js-header-search-form" role="search" aria-label="Mobile grocery search">
+          <label for="mobileSearchInput" class="sr-only">Search grocery products</label>
+          <input id="mobileSearchInput" type="search" placeholder="Search fruits, vegetables, dairy, pantry..." autocomplete="off" />
+          <button type="submit" class="header-search__btn" aria-label="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="header-nav-bar">
+      <div class="container header-nav">
+        <nav aria-label="Main navigation">
+          <ul class="nav-list">
+            <li class="nav-dropdown">
+              <button type="button" class="nav-dropdown__trigger" aria-expanded="false" aria-haspopup="true">
+                <span>Home</span>
+                <svg class="nav-dropdown__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="nav-dropdown__menu" role="menu">
+                <a class="nav-dropdown__item" href="../index.html" role="menuitem">Home 1</a>
+                <a class="nav-dropdown__item" href="./home2.html" role="menuitem">Home 2</a>
+              </div>
+            </li>
+            <li><a class="nav-link" href="./about.html">About</a></li>
+            <li><a class="nav-link" href="./products.html">Products</a></li>
+            <li><a class="nav-link" href="./delivery.html">Delivery Info</a></li>
+            <li><a class="nav-link" href="./offers.html">Offers</a></li>
+            <li><a class="nav-link" href="./contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <p class="header-delivery-hint">Demonstration checkout — no payment credentials collected</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation" aria-hidden="true">
+    <div class="mobile-drawer__head">
+      <a class="brand-mark" href="../index.html">
+        <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126#freshaisle-mark"></use></svg>
+        <span class="brand-mark__text">Fresh<span>Aisle</span></span>
+      </a>
+      <button type="button" class="mobile-drawer__close" id="mobileMenuClose" aria-label="Close navigation menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-drawer__body">
+      <div>
+        <p class="mobile-drawer__group-label">Storefront</p>
+        <nav class="mobile-drawer__nav">
+          <a class="mobile-drawer__link" href="../index.html">Home 1</a>
+          <a class="mobile-drawer__link" href="./home2.html">Home 2</a>
+          <a class="mobile-drawer__link" href="./about.html">About</a>
+          <a class="mobile-drawer__link" href="./products.html">Products</a>
+          <a class="mobile-drawer__link" href="./offers.html">Offers</a>
+          <a class="mobile-drawer__link" href="./delivery.html">Delivery Info</a>
+          <a class="mobile-drawer__link" href="./contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <p class="mobile-drawer__group-label">Customer</p>
+        <nav class="mobile-drawer__nav">
+          <a class="mobile-drawer__link" href="./dashboard.html">Dashboard</a>
+          <a class="mobile-drawer__link" href="./cart.html">Cart</a>
+          <a class="mobile-drawer__link" href="./login.html">Login</a>
+          <a class="mobile-drawer__link" href="./signup.html">Create Account</a>
+        </nav>
+      </div>
+      <div class="mobile-drawer__tools">
+        <button type="button" class="icon-control js-theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+        </button>
+        <button type="button" class="icon-control js-dir-toggle" aria-label="Switch text direction to RTL" aria-pressed="false">
+          <span class="js-dir-label">RTL</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <main id="mainContent">
+    <section class="page-hero">
+      <div class="container">
+        <p class="section-kicker">Demonstration Ordering Flow</p>
+        <h1 class="page-hero__title">Home Delivery Checkout</h1>
+        <p class="page-hero__lead">Complete delivery details and review your order locally. No real payment processor or courier dispatch is connected, and no card, CVV, or UPI credentials are requested.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="empty-state" id="checkoutEmptyState" hidden>
+          <h3>Your Basket is Empty</h3>
+          <p>Add groceries to your shopping cart before proceeding to home delivery checkout.</p>
+          <a class="btn btn--primary" href="./products.html">Browse Products</a>
+        </div>
+
+        <div class="checkout-layout" id="checkoutLayout">
+          <div>
+            <div class="checkout-card" id="coFormCard">
+              <h2>1. Delivery Address &amp; Schedule</h2>
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="coName" class="form-label">Customer Name *</label>
+                  <input id="coName" type="text" class="form-input" placeholder="Full name" required />
+                  <span class="form-error" aria-live="polite"></span>
+                </div>
+                <div class="form-field">
+                  <label for="coPhone" class="form-label">Mobile Phone *</label>
+                  <input id="coPhone" type="tel" class="form-input" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" required />
+                  <span class="form-error" aria-live="polite"></span>
+                </div>
+                <div class="form-field form-field--full">
+                  <label for="coAddress" class="form-label">Delivery Address *</label>
+                  <input id="coAddress" type="text" class="form-input" placeholder="Flat / House no., street, and neighborhood" required />
+                  <span class="form-error" aria-live="polite"></span>
+                </div>
+                <div class="form-field">
+                  <label for="coPin" class="form-label">6-Digit PIN Code *</label>
+                  <input id="coPin" type="text" class="form-input" inputmode="numeric" maxlength="6" placeholder="e.g. 560038" required />
+                  <span class="form-error" aria-live="polite"></span>
+                </div>
+                <div class="form-field">
+                  <label for="coDate" class="form-label">Preferred Delivery Date *</label>
+                  <input id="coDate" type="date" class="form-input" required />
+                  <span class="form-error" aria-live="polite"></span>
+                </div>
+                <div class="form-field">
+                  <label for="coSlot" class="form-label">Preferred Delivery Slot</label>
+                  <select id="coSlot" data-v-select></select>
+                </div>
+                <div class="form-field">
+                  <label for="coSubstitution" class="form-label">Substitution Preference</label>
+                  <select id="coSubstitution" data-v-select></select>
+                </div>
+                <div class="form-field form-field--full">
+                  <label for="coInstructions" class="form-label">Delivery Instructions (Optional)</label>
+                  <textarea id="coInstructions" class="form-textarea" placeholder="Gate code, call on arrival, or leave with security..."></textarea>
+                </div>
+              </div>
+              <div class="notice-box" style="margin-top:14px">
+                <strong>Frontend Demo Notice:</strong> Payment credentials are intentionally omitted. Confirming creates a local order record stored in your browser.
+              </div>
+              <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:12px">
+                <button type="button" class="btn btn--primary" id="coReviewBtn">Review Order</button>
+                <a class="btn btn--outline" href="./cart.html">Back to Cart</a>
+              </div>
+            </div>
+
+            <div class="checkout-card" id="coReviewCard" hidden>
+              <h2>2. Review Demo Order</h2>
+              <div class="checkout-review-list" id="coReviewDetails"></div>
+              <div class="notice-box" style="margin-bottom:16px">
+                Confirming places a local demonstration order saved in your Dashboard Order History. No real supermarket dispatch or payment takes place.
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:12px">
+                <button type="button" class="btn btn--primary" id="coPlaceOrderBtn">Place Demo Order</button>
+                <button type="button" class="btn btn--outline" id="coEditBtn">Edit Details</button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="summary-panel" aria-label="Checkout summary">
+            <h2>Basket Breakdown</h2>
+            <div class="summary-rows" id="coSummaryItems"></div>
+            <div class="summary-rows" style="border-top:0">
+              <div class="summary-row"><span>Basket Subtotal</span><span id="coSubtotal">₹0</span></div>
+              <div class="summary-row summary-row--savings"><span>Weekly Offer Savings</span><span id="coSavings">-₹0</span></div>
+              <div class="summary-row"><span>Delivery Charge</span><span id="coDeliveryFee">₹0</span></div>
+            </div>
+            <div class="summary-total">
+              <span>Demo Order Total</span>
+              <span id="coGrandTotal">₹0</span>
+            </div>
+          </aside>
+        </div>
+
+        <div class="checkout-success-card" id="checkoutSuccessState" hidden>
+          <p class="section-kicker">Demo Order Recorded Locally</p>
+          <h2 class="section-title">Thank You — Local Order Saved</h2>
+          <p style="margin-top:10px;color:var(--text-secondary)">This demonstration order snapshot is now stored in your browser and visible in your Customer Dashboard. No real transaction or store dispatch occurred.</p>
+          <div class="checkout-review-list" style="margin-top:18px">
+            <div><strong>Order ID:</strong> <span id="coSuccessOrderId"></span></div>
+            <div><strong>Initial Status:</strong> <span id="coSuccessStatus"></span></div>
+            <div><strong>Delivery Window:</strong> <span id="coSuccessSlot"></span></div>
+            <div><strong>Order Total:</strong> <span id="coSuccessTotal"></span></div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px">
+            <a class="btn btn--primary" id="coTrackLink" href="./dashboard.html#track">Track Order in Dashboard</a>
+            <a class="btn btn--outline" href="./products.html">Continue Shopping</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand-mark" href="../index.html">
+            <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126#freshaisle-mark"></use></svg>
+            <span class="brand-mark__text">Fresh<span>Aisle</span></span>
+          </a>
+          <p class="footer-brand-desc">Contemporary neighborhood supermarket storefront with shared frontend cart, shopping lists, demo checkout, and order tracking.</p>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Explore</h3>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home 1</a></li>
+            <li><a href="./home2.html">Home 2</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./offers.html">Offers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Categories</h3>
+          <ul class="footer-links">
+            <li><a href="./products.html?category=fruits">Fruits</a></li>
+            <li><a href="./products.html?category=vegetables">Vegetables</a></li>
+            <li><a href="./products.html?category=dairy">Dairy &amp; Eggs</a></li>
+            <li><a href="./products.html?category=pantry">Pantry Essentials</a></li>
+            <li><a href="./products.html?category=bakery">Bakery</a></li>
+            <li><a href="./products.html?category=beverages">Snacks &amp; Beverages</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Shopping &amp; Help</h3>
+          <ul class="footer-links">
+            <li><a href="./delivery.html">Delivery Info</a></li>
+            <li><a href="./cart.html">Shopping Cart</a></li>
+            <li><a href="./checkout.html">Checkout</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Customer Account</h3>
+          <ul class="footer-links">
+            <li><a href="./dashboard.html">Customer Dashboard</a></li>
+            <li><a href="./dashboard.html#lists">Shopping Lists</a></li>
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./signup.html">Create Account</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>FreshAisle Supermarket · Frontend Storefront &amp; Customer Dashboard</span>
+        <span>Illustrative INR pricing &amp; browser-local demonstration state</span>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script defer src="../assets/js/site-config.js?v=20261126"></script>
+  <script defer src="../assets/js/products-data.js?v=20261126"></script>
+  <script defer src="../assets/js/store.js?v=20261126"></script>
+  <script defer src="../assets/js/main.js?v=20261126"></script>
+  <script defer src="../assets/js/checkout.js?v=20261126"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="site-root" content=".." />
+  <title>Create Account | FreshAisle</title>
+  <meta name="description" content="Create a FreshAisle supermarket customer account." />
+  <link rel="icon" href="../assets/icons/favicon.svg?v=20261126" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/css/fonts.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/auth.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=20261126" />
+  <link rel="stylesheet" href="../assets/css/rtl.css?v=20261126" />
+  <script>
+    (function(){try{var t=localStorage.getItem('freshaisle_theme');var d=localStorage.getItem('freshaisle_dir');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);if(d==='rtl'||d==='ltr')document.documentElement.setAttribute('dir',d);}catch(e){}})();
+  </script>
+</head>
+<body data-page="signup">
+  <main class="auth-shell">
+    <figure class="auth-visual">
+      <img src="../assets/images/lifestyle/auth-signup.jpg" alt="Freshly baked loaves, coffee, and morning breakfast items on a table" width="1200" height="900" />
+      <div class="auth-visual__scrim" aria-hidden="true"></div>
+      <figcaption class="auth-visual__caption">
+        <h2>Everyday Shopping, Organized Simply</h2>
+        <p>Build reusable shopping lists, compare weekly aisle offers, and plan scheduled grocery baskets.</p>
+      </figcaption>
+    </figure>
+
+    <section class="auth-panel">
+      <div class="auth-card">
+        <div class="auth-card__top">
+          <a class="brand-mark" href="../index.html" aria-label="Return to FreshAisle Home 1">
+            <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126#freshaisle-mark"></use></svg>
+            <span class="brand-mark__text">Fresh<span>Aisle</span></span>
+          </a>
+          <div class="auth-card__tools">
+            <button type="button" class="icon-control js-theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+              <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg>
+              <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+            </button>
+            <button type="button" class="icon-control js-dir-toggle" aria-label="Switch text direction to RTL" aria-pressed="false">
+              <span class="js-dir-label">RTL</span>
+            </button>
+          </div>
+        </div>
+
+        <h1 class="auth-card__title">Create Account</h1>
+        <p class="auth-card__intro">Set up a customer profile for your household groceries.</p>
+
+        <form id="signupForm" class="auth-form" novalidate>
+          <div class="form-field">
+            <label for="signupName" class="form-label">Full Name</label>
+            <input id="signupName" name="name" type="text" class="form-input" autocomplete="name" required />
+            <span class="form-error" aria-live="polite"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="signupEmail" class="form-label">Email Address</label>
+            <input id="signupEmail" name="email" type="email" class="form-input" autocomplete="email" required />
+            <span class="form-error" aria-live="polite"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="signupPassword" class="form-label">Password</label>
+            <div class="password-wrap">
+              <input id="signupPassword" name="password" type="password" autocomplete="new-password" minlength="8" required />
+              <button type="button" class="password-toggle" data-toggle-password="signupPassword" aria-controls="signupPassword" aria-label="Show password" aria-pressed="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <span class="form-error" aria-live="polite"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="signupConfirmPassword" class="form-label">Confirm Password</label>
+            <div class="password-wrap">
+              <input id="signupConfirmPassword" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" required />
+              <button type="button" class="password-toggle" data-toggle-password="signupConfirmPassword" aria-controls="signupConfirmPassword" aria-label="Show confirm password" aria-pressed="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <span class="form-error" aria-live="polite"></span>
+          </div>
+
+          <button type="submit" class="btn btn--primary auth-submit">Create Account</button>
+        </form>
+
+        <div class="auth-divider"><span>Or continue with</span></div>
+        <div class="auth-providers">
+          <button type="button" class="provider-btn" data-provider="Google">
+            <span style="font-weight:800;color:#4285F4" aria-hidden="true">G</span><span>Google</span>
+          </button>
+          <button type="button" class="provider-btn" data-provider="Apple">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 3c-1.2.1-2.6.8-3.3 1.6-.7.8-1.3 2-1.1 3.1 1.3.1 2.6-.6 3.4-1.5.7-.8 1.2-2 1-3.2ZM19 15.4c-.5 1.2-.8 1.7-1.4 2.7-.9 1.3-2.1 3-3.5 3-1.3 0-1.6-.9-3.4-.9-1.7.1-2 .9-3.3.9-1.4 0-2.6-1.6-3.5-2.9C1.3 14.5 2 9 5.4 7.5c1.6-.7 3.1-.1 4.2.3.8.3 1 .3 1.8 0 1.1-.5 3-1.1 4.7-.2.9.5 1.5 1.1 2 1.8-3.1 1.6-2.6 5.1.9 6Z"/></svg>
+            <span>Apple</span>
+          </button>
+        </div>
+
+        <p id="authFeedback" class="auth-feedback" role="status" aria-live="polite"></p>
+        <p class="auth-switch">Already have an account? <a href="./login.html">Sign In</a></p>
+      </div>
+    </section>
+  </main>
+
+  <script defer src="../assets/js/site-config.js?v=20261126"></script>
+  <script defer src="../assets/js/main.js?v=20261126"></script>
+  <script defer src="../assets/js/auth.js?v=20261126"></script>
+</body>
+</html>

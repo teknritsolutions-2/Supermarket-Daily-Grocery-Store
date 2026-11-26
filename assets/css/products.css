@@ -1,0 +1,205 @@
+/* ==========================================================================
+   FreshAisle — Catalogue, Offers & Bundles Styles
+   ========================================================================== */
+
+.catalogue-controls {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cat-tab {
+  min-height: 42px;
+  padding: 0 15px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-strong);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.cat-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cat-tab.is-active {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #FFFFFF;
+}
+
+html[data-theme="dark"] .cat-tab.is-active {
+  color: #101411;
+}
+
+.catalogue-toolbar {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+  padding: 16px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 960px) {
+  .catalogue-toolbar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .catalogue-toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.catalogue-toggle-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xs);
+  background-color: var(--bg-page);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.catalogue-toggle-check input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--accent);
+}
+
+.catalogue-status-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.catalogue-count {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.empty-state {
+  padding: clamp(32px, 5vw, 54px) 20px;
+  text-align: center;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.empty-state h3 {
+  font-size: 1.35rem;
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  color: var(--text-secondary);
+  max-width: 46ch;
+  margin: 0 auto 18px;
+}
+
+/* Grocery Bundles (Offers & Home 2) */
+.bundle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 860px) {
+  .bundle-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.bundle-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bundle-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.bundle-card__title {
+  font-size: 1.2rem;
+}
+
+.bundle-card__save {
+  padding: 4px 10px;
+  border-radius: 4px;
+  background-color: var(--promo-soft);
+  color: var(--promo);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.bundle-card__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bundle-item-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px 5px 6px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  background-color: var(--bg-page);
+  font-size: 0.875rem;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.bundle-item-chip img {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.bundle-card__foot {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bundle-card__pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
