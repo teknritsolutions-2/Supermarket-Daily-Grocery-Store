@@ -189,17 +189,35 @@ html[data-theme="dark"] .btn--danger-outline {
   border-color: rgba(252, 165, 165, 0.35);
 }
 
-html[data-theme="dark"] .home2-routine-btn,
+html[data-theme="dark"] .meal-plan-tab,
+html[data-theme="dark"] .planner-ledger,
+html[data-theme="dark"] .planner-receipt,
 html[data-theme="dark"] .provider-btn {
-  background-color: #202020;
-  border-color: #343434;
+  background-color: #181818;
+  border-color: #2E2E2E;
   color: #F4F4F4;
 }
 
-html[data-theme="dark"] .home2-routine-btn:hover,
+html[data-theme="dark"] .meal-plan-tab:hover,
 html[data-theme="dark"] .provider-btn:hover {
   border-color: var(--accent);
   background-color: var(--accent-soft);
+}
+
+html[data-theme="dark"] .meal-plan-tab.is-active,
+html[data-theme="dark"] .meal-plan-tab[aria-pressed="true"] {
+  border-color: var(--accent);
+  border-bottom-color: var(--accent);
+  background-color: var(--accent-soft);
+}
+
+html[data-theme="dark"] .planner-ledger__head,
+html[data-theme="dark"] .planner-row.is-unchecked {
+  background-color: #202020;
+}
+
+html[data-theme="dark"] .planner-receipt {
+  border-top-color: var(--accent);
 }
 
 html[data-theme="dark"] .hero-eyebrow {

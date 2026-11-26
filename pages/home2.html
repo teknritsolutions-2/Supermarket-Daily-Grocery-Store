@@ -6,12 +6,12 @@
   <meta name="site-root" content=".." />
   <title>Your Week, Sorted — Home 2 | FreshAisle</title>
   <meta name="description" content="Organize weekly grocery shopping with FreshAisle's interactive basket builder, meal ingredient collections, household bundles, and list planner." />
-  <link rel="icon" href="../assets/icons/favicon.svg?v=20261126c" type="image/svg+xml" />
-  <link rel="stylesheet" href="../assets/css/fonts.css?v=20261126c" />
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261126c" />
-  <link rel="stylesheet" href="../assets/css/products.css?v=20261126c" />
-  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=20261126c" />
-  <link rel="stylesheet" href="../assets/css/rtl.css?v=20261126c" />
+  <link rel="icon" href="../assets/icons/favicon.svg?v=20261126d" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/css/fonts.css?v=20261126d" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261126d" />
+  <link rel="stylesheet" href="../assets/css/products.css?v=20261126d" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=20261126d" />
+  <link rel="stylesheet" href="../assets/css/rtl.css?v=20261126d" />
   <script>
     (function(){try{var t=localStorage.getItem('freshaisle_theme');var d=localStorage.getItem('freshaisle_dir');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);if(d==='rtl'||d==='ltr')document.documentElement.setAttribute('dir',d);}catch(e){}})();
   </script>
@@ -27,7 +27,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
           </button>
           <a class="brand-mark" href="../index.html" aria-label="FreshAisle Home">
-            <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126c#freshaisle-mark"></use></svg>
+            <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126d#freshaisle-mark"></use></svg>
             <span class="brand-mark__text">Fresh<span>Aisle</span></span>
           </a>
         </div>
@@ -95,7 +95,7 @@
   <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation" aria-hidden="true">
     <div class="mobile-drawer__head">
       <a class="brand-mark" href="../index.html">
-        <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126c#freshaisle-mark"></use></svg>
+        <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126d#freshaisle-mark"></use></svg>
         <span class="brand-mark__text">Fresh<span>Aisle</span></span>
       </a>
       <button type="button" class="mobile-drawer__close" id="mobileMenuClose" aria-label="Close navigation menu">
@@ -137,102 +137,85 @@
   </aside>
 
   <main id="mainContent">
-    <!-- 1. Home 2 Weekly Planning Workspace Hero -->
-    <section class="home2-planner-hero">
-      <div class="container">
-        <div class="home2-planner-grid">
-          <div class="home2-planner-panel">
-            <div>
-              <p class="section-kicker">Weekly Meal &amp; Grocery Planner</p>
-              <h1 class="home2-planner-panel__title">Your Week, Sorted</h1>
-              <p class="home2-planner-panel__lead">Organize weekday breakfasts, packed lunches, dinner prep, and pantry refills in one structured workflow. Pick a daily routine below or customize your weekly household basket.</p>
-            </div>
-            <div class="home2-routine-grid" aria-label="Jump to meal routine">
-              <button type="button" class="home2-routine-btn" data-jump-meal="breakfast">
-                <span class="home2-routine-btn__kicker">Morning</span>
-                <span class="home2-routine-btn__name">Breakfast &amp; Dairy</span>
-                <span class="home2-routine-btn__meta">Oats, milk, eggs &amp; bananas</span>
-              </button>
-              <button type="button" class="home2-routine-btn" data-jump-meal="lunch">
-                <span class="home2-routine-btn__kicker">Midday</span>
-                <span class="home2-routine-btn__name">Packed Lunch &amp; Tiffin</span>
-                <span class="home2-routine-btn__meta">Atta, dal, paneer &amp; greens</span>
-              </button>
-              <button type="button" class="home2-routine-btn" data-jump-meal="dinner">
-                <span class="home2-routine-btn__kicker">Evening</span>
-                <span class="home2-routine-btn__name">Home-Style Dinner</span>
-                <span class="home2-routine-btn__meta">Basmati rice, curries &amp; paneer</span>
-              </button>
-              <button type="button" class="home2-routine-btn" data-jump-meal="teatime">
-                <span class="home2-routine-btn__kicker">Afternoon</span>
-                <span class="home2-routine-btn__name">Tea-Time &amp; Bakery</span>
-                <span class="home2-routine-btn__meta">Assam tea, rusks &amp; nuts</span>
-              </button>
-            </div>
-            <div class="home2-planner-actions">
-              <a class="btn btn--primary" href="#weeklyBuilder">Build Weekly Basket &rarr;</a>
-              <a class="btn btn--outline" href="./dashboard.html#lists">My Shopping Lists</a>
-              <a class="btn btn--outline" href="./offers.html">Weekly Bundles</a>
-            </div>
-          </div>
-          <div class="home2-planner-visual">
-            <img src="../assets/images/lifestyle/home2-hero.jpg" alt="Kitchen counter prepared with fresh vegetables and daily cooking ingredients" width="1200" height="800" />
-            <div class="home2-planner-stats">
-              <div class="home2-stat-box">
-                <span class="home2-stat-box__val">4 Meals</span>
-                <span class="home2-stat-box__lbl">Weekday routines</span>
-              </div>
-              <div class="home2-stat-box">
-                <span class="home2-stat-box__val">5 Windows</span>
-                <span class="home2-stat-box__lbl">Daily delivery slots</span>
-              </div>
-              <div class="home2-stat-box">
-                <span class="home2-stat-box__val">1 Click</span>
-                <span class="home2-stat-box__lbl">Save reusable lists</span>
-              </div>
-            </div>
+    <!-- 1. Home 2 Conventional Full-Width Weekly Planning Banner -->
+    <section class="home2-banner" aria-label="Weekly Meal and Grocery Planner">
+      <div class="home2-banner__bg">
+        <img src="../assets/images/lifestyle/home2-hero.jpg" alt="Kitchen counter prepared with fresh vegetables and daily cooking ingredients" width="1200" height="800" />
+      </div>
+      <div class="home2-banner__scrim" aria-hidden="true"></div>
+      <div class="container home2-banner__inner">
+        <div class="home2-banner__content">
+          <span class="hero-eyebrow">Weekly Meal &amp; Grocery Planner</span>
+          <h1 class="home2-banner__title">Your Week, Sorted</h1>
+          <p class="home2-banner__lead">Organize weekday breakfasts, packed lunches, and family dinners in one straightforward planner. Check off pantry staples already at home and add the rest in one click.</p>
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="#weeklyBuilder">Build Weekly Basket &rarr;</a>
+            <a class="btn btn--light-outline" href="./dashboard.html#lists">My Shopping Lists</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 2. Interactive Weekly Basket Builder -->
+    <!-- 2. Weekly Routine Planner & Basket Ledger -->
     <section class="section section--muted" id="weeklyBuilder">
       <div class="container">
         <div class="section-head">
           <div class="section-head__copy">
-            <p class="section-kicker">Interactive Planner</p>
-            <h2 class="section-title">Build Your Weekly Grocery Basket</h2>
-            <p class="section-lead">Pick a meal collection, adjust household quantities, untick what is already in your kitchen, and add the rest to your Cart or Shopping List.</p>
+            <p class="section-kicker">Interactive Weekly Planner</p>
+            <h2 class="section-title">Plan by Daily Routine</h2>
+            <p class="section-lead">Switch between daily meal routines below, tick off items already in your cupboard, adjust household pack counts, and send your selection straight to Cart or a Shopping List.</p>
           </div>
         </div>
-        <div class="basket-builder">
-          <div>
-            <div class="basket-builder__bar">
-              <div class="basket-builder__tabs" id="home2BuilderTabs">
-                <button type="button" class="chip-tab is-active" data-meal-tab="breakfast" aria-pressed="true">Breakfast</button>
-                <button type="button" class="chip-tab" data-meal-tab="lunch" aria-pressed="false">Everyday Lunch</button>
-                <button type="button" class="chip-tab" data-meal-tab="dinner" aria-pressed="false">Quick Dinner</button>
-                <button type="button" class="chip-tab" data-meal-tab="teatime" aria-pressed="false">Tea-Time Snacks</button>
+
+        <div class="meal-plan-strip" id="home2BuilderTabs" role="tablist" aria-label="Daily meal routines">
+          <button type="button" class="meal-plan-tab is-active" data-meal-tab="breakfast" aria-pressed="true">
+            <span class="meal-plan-tab__time">Morning Routine</span>
+            <span class="meal-plan-tab__name">Breakfast &amp; Dairy</span>
+          </button>
+          <button type="button" class="meal-plan-tab" data-meal-tab="lunch" aria-pressed="false">
+            <span class="meal-plan-tab__time">Midday Tiffin</span>
+            <span class="meal-plan-tab__name">Everyday Lunch</span>
+          </button>
+          <button type="button" class="meal-plan-tab" data-meal-tab="dinner" aria-pressed="false">
+            <span class="meal-plan-tab__time">Evening Table</span>
+            <span class="meal-plan-tab__name">Quick Dinner</span>
+          </button>
+          <button type="button" class="meal-plan-tab" data-meal-tab="teatime" aria-pressed="false">
+            <span class="meal-plan-tab__time">Afternoon Break</span>
+            <span class="meal-plan-tab__name">Tea-Time Snacks</span>
+          </button>
+        </div>
+
+        <div class="planner-sheet">
+          <div class="planner-ledger">
+            <div class="planner-ledger__head">
+              <div>
+                <h3 class="planner-ledger__title" id="home2BuilderRoutineTitle">Routine Ingredients</h3>
+                <p class="text-muted" id="home2BuilderCount">0 items selected</p>
               </div>
               <button type="button" class="btn btn--outline btn--sm" id="home2BuilderToggleAll">Uncheck All</button>
             </div>
-            <div class="basket-checklist" id="home2BuilderChecklist"></div>
+            <div class="planner-ledger__list" id="home2BuilderChecklist"></div>
           </div>
-          <div class="basket-summary-panel">
-            <h3>Selected Basket Summary</h3>
-            <p class="text-muted" id="home2BuilderCount">0 items selected</p>
-            <div class="summary-rows" style="padding-block:10px">
-              <div class="summary-row"><span>Total Units</span><strong id="home2BuilderUnits">0</strong></div>
+
+          <aside class="planner-receipt" aria-label="Weekly planner basket summary">
+            <div class="planner-receipt__head">
+              <h3>Weekly Routine Summary</h3>
+              <p class="planner-receipt__note" id="home2BuilderDeliveryNote">Complimentary delivery on orders over ₹599</p>
+            </div>
+            <div class="summary-rows">
+              <div class="summary-row"><span>Selected Pack Units</span><strong id="home2BuilderUnits">0</strong></div>
               <div class="summary-row summary-row--savings"><span>Weekly Offer Savings</span><strong id="home2BuilderSavings">-₹0</strong></div>
             </div>
-            <div>
-              <span class="text-muted" style="font-size:0.875rem">Estimated Basket Subtotal</span>
-              <div class="basket-summary-panel__total" id="home2BuilderTotal">₹0</div>
+            <div class="planner-receipt__total-row">
+              <span>Routine Subtotal</span>
+              <strong class="planner-receipt__total" id="home2BuilderTotal">₹0</strong>
             </div>
-            <button type="button" class="btn btn--primary" id="home2BuilderAddCart">Add Selected to Cart</button>
-            <button type="button" class="btn btn--outline" id="home2BuilderAddList">Save Selected to Shopping List</button>
-          </div>
+            <div class="planner-receipt__actions">
+              <button type="button" class="btn btn--primary" id="home2BuilderAddCart">Add Selected to Cart</button>
+              <button type="button" class="btn btn--outline" id="home2BuilderAddList">Save to Shopping List</button>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -362,7 +345,7 @@
       <div class="footer-grid">
         <div>
           <a class="brand-mark" href="../index.html">
-            <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126c#freshaisle-mark"></use></svg>
+            <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126d#freshaisle-mark"></use></svg>
             <span class="brand-mark__text">Fresh<span>Aisle</span></span>
           </a>
           <p class="footer-brand-desc">Contemporary neighborhood supermarket for fresh produce, chilled dairy, pantry staples, and scheduled home delivery.</p>
@@ -417,11 +400,11 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
   </button>
 
-  <script defer src="../assets/js/site-config.js?v=20261126c"></script>
-  <script defer src="../assets/js/products-data.js?v=20261126c"></script>
-  <script defer src="../assets/js/offers-data.js?v=20261126c"></script>
-  <script defer src="../assets/js/store.js?v=20261126c"></script>
-  <script defer src="../assets/js/main.js?v=20261126c"></script>
-  <script defer src="../assets/js/pages.js?v=20261126c"></script>
+  <script defer src="../assets/js/site-config.js?v=20261126d"></script>
+  <script defer src="../assets/js/products-data.js?v=20261126d"></script>
+  <script defer src="../assets/js/offers-data.js?v=20261126d"></script>
+  <script defer src="../assets/js/store.js?v=20261126d"></script>
+  <script defer src="../assets/js/main.js?v=20261126d"></script>
+  <script defer src="../assets/js/pages.js?v=20261126d"></script>
 </body>
 </html>

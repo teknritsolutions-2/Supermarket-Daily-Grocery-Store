@@ -150,9 +150,11 @@
   function initHome2() {
     var builderTabs = document.getElementById('home2BuilderTabs');
     var builderList = document.getElementById('home2BuilderChecklist');
+    var builderTitle = document.getElementById('home2BuilderRoutineTitle');
     var builderCount = document.getElementById('home2BuilderCount');
     var builderUnits = document.getElementById('home2BuilderUnits');
     var builderSavings = document.getElementById('home2BuilderSavings');
+    var builderDeliveryNote = document.getElementById('home2BuilderDeliveryNote');
     var builderTotal = document.getElementById('home2BuilderTotal');
     var toggleAllBtn = document.getElementById('home2BuilderToggleAll');
     var addCartBtn = document.getElementById('home2BuilderAddCart');
@@ -170,15 +172,6 @@
         renderBuilder();
       }
 
-      document.querySelectorAll('.home2-routine-btn[data-jump-meal]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var mealId = btn.getAttribute('data-jump-meal');
-          loadMeal(mealId);
-          var builderEl = document.getElementById('weeklyBuilder');
-          if (builderEl) builderEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-      });
-
       function renderBuilder() {
         builderTabs.querySelectorAll('[data-meal-tab]').forEach(function (btn) {
           var active = btn.getAttribute('data-meal-tab') === activeMealId;
@@ -191,6 +184,10 @@
         var totalSavings = 0;
         var chosenCount = 0;
         var unitSum = 0;
+
+        if (builderTitle && meal) {
+          builderTitle.textContent = meal.title + ' Ingredients';
+        }
 
         builderList.innerHTML = meal.productIds.map(function (id) {
           var p = cat.getProductById(id);
@@ -205,19 +202,22 @@
             unitSum += entry.qty;
           }
           return (
-            '<div class="basket-check-row">' +
-              '<label class="basket-check-row__label">' +
+            '<div class="planner-row' + (entry.checked ? '' : ' is-unchecked') + '">' +
+              '<label class="planner-row__main">' +
                 '<input type="checkbox" class="js-builder-chk" data-id="' + ui.escapeHtml(p.id) + '"' + (entry.checked ? ' checked' : '') + '>' +
-                '<img class="basket-check-row__thumb" src="' + ui.escapeHtml(cfg.resolvePath(p.image)) + '" alt="' + ui.escapeHtml(p.alt || p.name) + '" width="44" height="44">' +
-                '<span><strong>' + ui.escapeHtml(p.name) + '</strong><br><span class="text-muted" style="font-size:0.875rem">' + ui.escapeHtml(p.pack) + ' · ' + ui.escapeHtml(cfg.formatINR(eff)) + '</span></span>' +
+                '<img class="planner-row__thumb" src="' + ui.escapeHtml(cfg.resolvePath(p.image)) + '" alt="' + ui.escapeHtml(p.alt || p.name) + '" width="52" height="52">' +
+                '<span class="planner-row__info">' +
+                  '<strong class="planner-row__name">' + ui.escapeHtml(p.name) + '</strong>' +
+                  '<span class="planner-row__meta">' + ui.escapeHtml(p.pack) + ' · <span class="planner-row__price">' + ui.escapeHtml(cfg.formatINR(eff)) + '</span>' + (sav > 0 ? ' <span class="planner-row__save">Save ' + ui.escapeHtml(cfg.formatINR(sav)) + '</span>' : '') + '</span>' +
+                '</span>' +
               '</label>' +
-              '<div class="basket-check-row__controls">' +
+              '<div class="planner-row__actions">' +
                 '<div class="basket-qty-mini">' +
                   '<button type="button" class="js-builder-dec" data-id="' + ui.escapeHtml(p.id) + '" aria-label="Decrease quantity of ' + ui.escapeHtml(p.name) + '">&minus;</button>' +
                   '<span>' + entry.qty + '</span>' +
                   '<button type="button" class="js-builder-inc" data-id="' + ui.escapeHtml(p.id) + '" aria-label="Increase quantity of ' + ui.escapeHtml(p.name) + '">+</button>' +
                 '</div>' +
-                '<strong>' + ui.escapeHtml(cfg.formatINR(eff * entry.qty)) + '</strong>' +
+                '<strong class="planner-row__line-total">' + ui.escapeHtml(cfg.formatINR(eff * entry.qty)) + '</strong>' +
               '</div>' +
             '</div>'
           );
@@ -227,6 +227,14 @@
         if (builderUnits) builderUnits.textContent = String(unitSum);
         if (builderSavings) builderSavings.textContent = '-' + cfg.formatINR(totalSavings);
         builderTotal.textContent = cfg.formatINR(totalPaise);
+        if (builderDeliveryNote) {
+          if (totalPaise >= cfg.delivery.freeThresholdPaise) {
+            builderDeliveryNote.textContent = 'Qualifies for complimentary doorstep delivery (over ' + cfg.formatINR(cfg.delivery.freeThresholdPaise) + ').';
+          } else {
+            var remaining = Math.max(0, cfg.delivery.freeThresholdPaise - totalPaise);
+            builderDeliveryNote.textContent = 'Add ' + cfg.formatINR(remaining) + ' more to unlock complimentary delivery.';
+          }
+        }
         if (toggleAllBtn) {
           toggleAllBtn.textContent = chosenCount === meal.productIds.length ? 'Uncheck All' : 'Select All';
         }
