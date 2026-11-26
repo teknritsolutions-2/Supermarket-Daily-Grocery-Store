@@ -176,7 +176,7 @@
       reviewBtn.addEventListener('click', function () {
         var summary = store.getCartSummary();
         if (!summary.meetsMinOrder) {
-          store.showToast('Minimum illustrative order value is ' + cfg.formatINR(cfg.delivery.minOrderPaise));
+          store.showToast('Minimum order value is ' + cfg.formatINR(cfg.delivery.minOrderPaise));
           return;
         }
         var data = validateForm();

@@ -73,7 +73,7 @@
       writeJSON(cfg.storageKeys.addresses, [
         {
           id: 'addr-demo-home',
-          label: 'Home (Demo)',
+          label: 'Home',
           recipient: 'Ananya Rao',
           phone: '9876543210',
           line1: 'Flat 304, Oakridge Residency, 12th Main',
@@ -88,7 +88,7 @@
     if (profile === null) {
       writeJSON(cfg.storageKeys.profile, {
         name: 'Ananya Rao',
-        email: 'ananya.demo@example.com',
+        email: 'ananya.rao@example.com',
         phone: '9876543210',
         preferredSlot: cfg.delivery.slots[1].id,
         substitutionPref: cfg.delivery.substitutionOptions[0].id

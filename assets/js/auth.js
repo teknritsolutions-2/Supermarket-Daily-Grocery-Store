@@ -64,7 +64,7 @@
         if (!ok) return;
 
         document.getElementById('loginPassword').value = '';
-        setStatus('Live sign-in requires a connected account server. This static frontend does not authenticate or store passwords; you can preview shopping workflows from the Customer Dashboard in the main site navigation.');
+        setStatus('Account sign-in is currently unavailable online. Continue browsing or manage your shopping lists and orders from the Customer Dashboard.');
       });
     }
 
@@ -109,14 +109,14 @@
     document.querySelectorAll('[data-provider]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var provider = btn.getAttribute('data-provider');
-        setStatus(provider + ' single sign-on is not connected in this static demonstration build.');
+        setStatus(provider + ' sign-in is currently unavailable here. Use the Customer Dashboard to manage shopping lists and orders.');
       });
     });
 
     var forgotBtn = document.getElementById('forgotPasswordBtn');
     if (forgotBtn) {
       forgotBtn.addEventListener('click', function () {
-        setStatus('Password recovery emails require a connected authentication service.');
+        setStatus('Password recovery is currently unavailable while customer account services are offline.');
       });
     }
   });

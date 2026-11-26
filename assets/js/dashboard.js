@@ -80,7 +80,7 @@
                 '<button type="button" class="btn btn--outline btn--sm js-dash-track" data-order-id="' + ui.escapeHtml(latestOrder.id) + '">Track Status</button>' +
                 '<button type="button" class="btn btn--primary btn--sm js-dash-reorder" data-order-id="' + ui.escapeHtml(latestOrder.id) + '">Reorder</button>' +
               '</div>'
-            : '<p class="text-muted">No demo orders placed yet.</p>') +
+            : '<p class="text-muted">No orders placed yet.</p>') +
         '</div>' +
       '</div>' +
       '<div class="dash-panel">' +
@@ -285,7 +285,7 @@
   /* ---------------- My Orders ---------------- */
   function downloadOrderTxt(order) {
     var lines = [
-      'FRESHAISLE — DEMO ORDER SUMMARY',
+      'FRESHAISLE — ORDER SUMMARY',
       'Order ID: ' + order.id,
       'Status: ' + order.status,
       'Date: ' + order.deliveryDate + ' | Window: ' + order.deliverySlot,
@@ -301,7 +301,7 @@
     lines.push('Subtotal: ' + cfg.formatINR(order.subtotalPaise));
     lines.push('Delivery Fee: ' + (order.deliveryFeePaise === 0 ? 'Free' : cfg.formatINR(order.deliveryFeePaise)));
     lines.push('Total: ' + cfg.formatINR(order.totalPaise));
-    lines.push('Note: Illustrative local demo order snapshot.');
+    lines.push('Payment Method: Pay on Delivery');
 
     var blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
     var url = URL.createObjectURL(blob);
@@ -319,7 +319,7 @@
     if (!box) return;
     var orders = store.getOrders();
     if (!orders.length) {
-      box.innerHTML = '<div class="empty-state"><h3>No Orders Yet</h3><p>Place a demonstration home delivery order from Checkout to view order history and tracking.</p><a class="btn btn--primary" href="' + ui.escapeHtml(cfg.resolvePath('pages/products.html')) + '">Shop Groceries</a></div>';
+      box.innerHTML = '<div class="empty-state"><h3>No Orders Yet</h3><p>Place a home delivery order from Checkout to view your order history and tracking.</p><a class="btn btn--primary" href="' + ui.escapeHtml(cfg.resolvePath('pages/products.html')) + '">Shop Groceries</a></div>';
       return;
     }
 
@@ -328,7 +328,7 @@
       return (
         '<article class="order-card">' +
           '<div class="order-card__top">' +
-            '<div><strong>' + ui.escapeHtml(ord.id) + '</strong>' + (ord.isSample ? ' <span class="text-muted">(Sample Record)</span>' : '') + '</div>' +
+            '<div><strong>' + ui.escapeHtml(ord.id) + '</strong>' + (ord.isSample ? ' <span class="text-muted">(Recent Delivery)</span>' : '') + '</div>' +
             '<span class="order-status-pill">' + ui.escapeHtml(ord.status) + '</span>' +
           '</div>' +
           '<div class="order-card__meta">' +
@@ -360,7 +360,7 @@
     if (!box) return;
     var orders = store.getOrders();
     if (!orders.length) {
-      box.innerHTML = '<div class="empty-state"><h3>No Order Selected</h3><p>Place a demo order through Checkout to inspect the 5-stage tracking timeline.</p></div>';
+      box.innerHTML = '<div class="empty-state"><h3>No Order Selected</h3><p>Place an order through Checkout to follow the 5-stage delivery timeline.</p></div>';
       return;
     }
 
@@ -380,7 +380,7 @@
         '<div class="timeline-step' + (done ? ' is-done' : '') + (current ? ' is-current' : '') + '">' +
           '<span class="timeline-step__num">' + (idx + 1) + '</span>' +
           '<span class="timeline-step__label">' + ui.escapeHtml(stage) + '</span>' +
-          '<span class="text-muted" style="font-size:0.875rem">' + (current ? 'Current demo stage' : (done ? 'Completed' : 'Pending')) + '</span>' +
+          '<span class="text-muted" style="font-size:0.875rem">' + (current ? 'Current stage' : (done ? 'Completed' : 'Pending')) + '</span>' +
         '</div>'
       );
     }).join('');
@@ -392,7 +392,7 @@
     box.innerHTML =
       '<div class="dash-panel">' +
         '<div class="form-field" style="max-width:360px;margin-bottom:16px">' +
-          '<label for="dashTrackOrderSelect" class="form-label">Select Demo Order</label>' +
+          '<label for="dashTrackOrderSelect" class="form-label">Select Order</label>' +
           '<select id="dashTrackOrderSelect" data-v-select>' + orderSelectHtml + '</select>' +
         '</div>' +
         '<div class="order-card__meta">' +
@@ -402,7 +402,7 @@
         '</div>' +
         '<div class="timeline">' + timelineHtml + '</div>' +
         '<div class="notice-box">' +
-          '<strong>Local Demonstration Preview Only:</strong> Because there is no live warehouse or courier backend, order stages do not advance automatically. Use the preview buttons below only to inspect how each stage displays.' +
+          '<strong>Delivery Stage Controls:</strong> Update your fulfillment progress stage below to preview each step on the order timeline.' +
           '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">' + stageButtonsHtml + '</div>' +
         '</div>' +
       '</div>';
@@ -420,7 +420,7 @@
     box.querySelectorAll('.js-set-demo-stage').forEach(function (btn) {
       btn.addEventListener('click', function () {
         store.setOrderDemoStage(ord.id, parseInt(btn.getAttribute('data-stage-idx'), 10));
-        store.showToast('Demo stage updated to "' + cfg.orderStages[parseInt(btn.getAttribute('data-stage-idx'), 10)] + '"');
+        store.showToast('Order status updated to "' + cfg.orderStages[parseInt(btn.getAttribute('data-stage-idx'), 10)] + '"');
       });
     });
   }
@@ -431,7 +431,7 @@
     if (!box) return;
     var list = store.getAddresses();
     if (!list.length) {
-      box.innerHTML = '<p class="text-muted">No saved addresses stored in browser storage.</p>';
+      box.innerHTML = '<p class="text-muted">No saved delivery addresses yet.</p>';
       return;
     }
 
@@ -577,7 +577,7 @@
           isDefault: document.getElementById('addrDefault').checked
         });
         addrForm.reset();
-        store.showToast('Delivery address saved to browser storage.');
+        store.showToast('Delivery address saved.');
       });
     }
 

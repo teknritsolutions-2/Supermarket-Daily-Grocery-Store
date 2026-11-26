@@ -45,14 +45,14 @@
       authNote: 'freshaisle_auth_pref_v1'
     },
     offerPeriod: {
-      label: 'Illustrative Weekly Savings Cycle',
-      validityNote: 'Prices and weekly savings shown are illustrative store catalogue figures for demonstration.'
+      label: 'Weekly Savings Cycle',
+      validityNote: 'Weekly offers updated across everyday produce, chilled dairy, and pantry staples.'
     },
     delivery: {
       minOrderPaise: 14900,
       freeThresholdPaise: 59900,
       standardFeePaise: 3500,
-      note: 'Illustrative store delivery configuration — no live dispatch backend is connected.',
+      note: 'Five daily doorstep delivery windows with complimentary delivery on orders over ₹599.',
       slots: [
         { id: 'slot-morning-1', label: '07:00 AM – 09:00 AM (Early Morning)' },
         { id: 'slot-morning-2', label: '09:30 AM – 12:00 PM (Mid-Morning)' },

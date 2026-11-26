@@ -95,15 +95,15 @@
       var pct = Math.min(100, Math.round((summary.subtotalPaise / cfg.delivery.freeThresholdPaise) * 100));
       meterFill.style.width = pct + '%';
       if (summary.freeDeliveryRemainingPaise === 0) {
-        meterText.textContent = 'Your basket qualifies for complimentary delivery (illustrative threshold ' + cfg.formatINR(cfg.delivery.freeThresholdPaise) + ').';
+        meterText.textContent = 'Your basket qualifies for complimentary delivery (orders over ' + cfg.formatINR(cfg.delivery.freeThresholdPaise) + ').';
       } else {
-        meterText.textContent = 'Add ' + cfg.formatINR(summary.freeDeliveryRemainingPaise) + ' more to reach the illustrative ' + cfg.formatINR(cfg.delivery.freeThresholdPaise) + ' free-delivery threshold.';
+        meterText.textContent = 'Add ' + cfg.formatINR(summary.freeDeliveryRemainingPaise) + ' more to unlock complimentary delivery over ' + cfg.formatINR(cfg.delivery.freeThresholdPaise) + '.';
       }
     }
 
     if (minWarn) {
       minWarn.hidden = summary.meetsMinOrder;
-      minWarn.textContent = 'Minimum illustrative order value is ' + cfg.formatINR(cfg.delivery.minOrderPaise) + '.';
+      minWarn.textContent = 'Minimum order value for home delivery is ' + cfg.formatINR(cfg.delivery.minOrderPaise) + '.';
     }
     if (checkoutBtn) {
       checkoutBtn.setAttribute('aria-disabled', String(!summary.meetsMinOrder));

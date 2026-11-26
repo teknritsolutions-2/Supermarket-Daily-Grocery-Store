@@ -23,7 +23,10 @@
         return (
           '<a class="category-tile" href="' + ui.escapeHtml(cfg.resolvePath('pages/products.html')) + '?category=' + encodeURIComponent(c.id) + '">' +
             '<div class="category-tile__media"><img src="' + ui.escapeHtml(cfg.resolvePath(c.image)) + '" alt="' + ui.escapeHtml(c.label) + '" loading="lazy" width="320" height="240"></div>' +
-            '<div class="category-tile__body"><span class="category-tile__name">' + ui.escapeHtml(c.label) + '</span><span class="category-tile__count">' + count + ' items</span></div>' +
+            '<div class="category-tile__body">' +
+              '<div class="category-tile__top"><span class="category-tile__name">' + ui.escapeHtml(c.label) + '</span><span class="category-tile__count">' + count + ' items</span></div>' +
+              '<p class="category-tile__desc">' + ui.escapeHtml(c.description) + '</p>' +
+            '</div>' +
           '</a>'
         );
       }).join('');
@@ -55,14 +58,14 @@
       essGrid.innerHTML = essIds.map(renderCompactStapleCard).join('');
     }
 
-    // 5. Pantry Restock shelf cards
+    // 5. Pantry Restock shelf cards (2x2 structured departmental boards, 3 items each)
     var pantryGrid = document.getElementById('home1PantryGrid');
     if (pantryGrid) {
       var shelves = [
-        { title: 'Rice & Flour', desc: 'Aged basmati and whole-wheat atta.', img: 'assets/images/pantry/rice.jpg', ids: ['pa-rice', 'pa-wheat-atta'] },
-        { title: 'Lentils & Pulses', desc: 'Daily dals and kabuli chickpeas.', img: 'assets/images/pantry/toor-dal.jpg', ids: ['pa-toor-dal', 'pa-moong-dal', 'pa-chickpeas'] },
-        { title: 'Oils & Condiments', desc: 'Everyday cooking oil, sugar, and salt.', img: 'assets/images/pantry/cooking-oil.jpg', ids: ['pa-cooking-oil', 'pa-sugar', 'pa-salt'] },
-        { title: 'Spices & Grains', desc: 'Turmeric, chilli powder, oats, and pasta.', img: 'assets/images/pantry/turmeric.jpg', ids: ['pa-turmeric', 'pa-chilli-powder', 'pa-oats'] }
+        { title: 'Grains, Rice & Flour', desc: 'Aged basmati, whole-wheat atta, and durum pasta.', img: 'assets/images/pantry/rice.jpg', ids: ['pa-rice', 'pa-wheat-atta', 'pa-pasta'] },
+        { title: 'Lentils & Pulses', desc: 'Daily unpolished dals and kabuli chickpeas.', img: 'assets/images/pantry/toor-dal.jpg', ids: ['pa-toor-dal', 'pa-moong-dal', 'pa-chickpeas'] },
+        { title: 'Oils & Cooking Basics', desc: 'Sunlit cooking oil, unrefined sugar, and salt.', img: 'assets/images/pantry/cooking-oil.jpg', ids: ['pa-cooking-oil', 'pa-sugar', 'pa-salt'] },
+        { title: 'Spices & Breakfast Grains', desc: 'Haldi, Guntur chilli powder, and rolled oats.', img: 'assets/images/pantry/turmeric.jpg', ids: ['pa-turmeric', 'pa-chilli-powder', 'pa-oats'] }
       ];
       pantryGrid.innerHTML = shelves.map(function (sh) {
         var rows = sh.ids.map(function (id) {
@@ -71,19 +74,26 @@
           var eff = cat.getEffectivePricePaise(p, p.pack);
           return (
             '<div class="pantry-shelf-item">' +
-              '<span>' + ui.escapeHtml(p.name) + ' <span class="text-muted">(' + ui.escapeHtml(p.pack) + ')</span></span>' +
-              '<button type="button" class="btn btn--outline btn--sm js-quick-add" data-id="' + ui.escapeHtml(p.id) + '" data-pack="' + ui.escapeHtml(p.pack) + '">' + ui.escapeHtml(cfg.formatINR(eff)) + ' +</button>' +
+              '<div>' +
+                '<a class="pantry-shelf-item__name" href="' + ui.escapeHtml(cfg.resolvePath('pages/products.html')) + '?search=' + encodeURIComponent(p.name) + '">' + ui.escapeHtml(p.name) + '</a>' +
+                '<span class="pantry-shelf-item__pack">' + ui.escapeHtml(p.pack) + '</span>' +
+              '</div>' +
+              '<span class="pantry-shelf-item__price">' + ui.escapeHtml(cfg.formatINR(eff)) + '</span>' +
+              '<button type="button" class="btn btn--outline btn--sm js-quick-add" data-id="' + ui.escapeHtml(p.id) + '" data-pack="' + ui.escapeHtml(p.pack) + '">+ Add</button>' +
             '</div>'
           );
         }).join('');
         return (
-          '<div class="pantry-shelf-card">' +
+          '<article class="pantry-shelf-card">' +
             '<div class="pantry-shelf-card__head">' +
-              '<img class="pantry-shelf-card__thumb" src="' + ui.escapeHtml(cfg.resolvePath(sh.img)) + '" alt="' + ui.escapeHtml(sh.title) + '" width="56" height="56">' +
-              '<div><h3>' + ui.escapeHtml(sh.title) + '</h3><p>' + ui.escapeHtml(sh.desc) + '</p></div>' +
+              '<div class="pantry-shelf-card__head-left">' +
+                '<img class="pantry-shelf-card__thumb" src="' + ui.escapeHtml(cfg.resolvePath(sh.img)) + '" alt="' + ui.escapeHtml(sh.title) + '" width="52" height="52">' +
+                '<div><h3>' + ui.escapeHtml(sh.title) + '</h3><p class="pantry-shelf-card__desc">' + ui.escapeHtml(sh.desc) + '</p></div>' +
+              '</div>' +
+              '<a class="text-link" href="' + ui.escapeHtml(cfg.resolvePath('pages/products.html')) + '?category=pantry">Shop all &rarr;</a>' +
             '</div>' +
             '<div class="pantry-shelf-list">' + rows + '</div>' +
-          '</div>'
+          '</article>'
         );
       }).join('');
     }
@@ -159,6 +169,15 @@
         meal.productIds.forEach(function (id) { selectedItems[id] = { checked: true, qty: 1 }; });
         renderBuilder();
       }
+
+      document.querySelectorAll('.home2-routine-btn[data-jump-meal]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var mealId = btn.getAttribute('data-jump-meal');
+          loadMeal(mealId);
+          var builderEl = document.getElementById('weeklyBuilder');
+          if (builderEl) builderEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
 
       function renderBuilder() {
         builderTabs.querySelectorAll('[data-meal-tab]').forEach(function (btn) {
@@ -520,7 +539,7 @@
     var slotsTbody = document.getElementById('delivSlotsTableBody');
     if (slotsTbody) {
       slotsTbody.innerHTML = cfg.delivery.slots.map(function (s, idx) {
-        return '<tr><td><strong>Window ' + (idx + 1) + '</strong></td><td>' + ui.escapeHtml(s.label) + '</td><td>Illustrative daily schedule</td></tr>';
+        return '<tr><td><strong>Window ' + (idx + 1) + '</strong></td><td>' + ui.escapeHtml(s.label) + '</td><td>Daily delivery schedule</td></tr>';
       }).join('');
     }
 
@@ -547,10 +566,10 @@
         var match = cfg.delivery.serviceableAreas.find(function (a) { return a.pin === pin; });
         if (match) {
           pinResult.className = 'pin-result pin-result--ok';
-          pinResult.textContent = 'PIN ' + match.pin + ' (' + match.area + ', ' + match.city + ') is listed in our illustrative sample service directory (' + match.windows + '). Actual live delivery availability requires store-side dispatch confirmation.';
+          pinResult.textContent = 'Delivery available for PIN ' + match.pin + ' (' + match.area + ', ' + match.city + ') — ' + match.windows + '.';
         } else {
           pinResult.className = 'pin-result pin-result--warn';
-          pinResult.textContent = 'PIN ' + pin + ' is not in the illustrative sample PIN list below. You can still test the demonstration Checkout workflow with any valid 6-digit PIN.';
+          pinResult.textContent = 'PIN ' + pin + ' is outside the listed neighborhood PIN directory below, though you can continue to checkout with any valid 6-digit PIN.';
         }
       });
     }

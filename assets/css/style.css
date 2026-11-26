@@ -949,11 +949,11 @@ ul, ol {
   background: #FFFFFF;
 }
 
-/* Complementary Retail Promo Stack beside Hero */
+/* Complementary Photographic Retail Promo Cards beside Hero */
 .hero-promo-stack {
   display: grid;
   grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 14px;
 }
 
 @media (max-width: 1024px) {
@@ -969,92 +969,127 @@ ul, ol {
   }
 }
 
-.promo-tile {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 112px;
-  gap: 14px;
-  align-items: center;
-  padding: 18px;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+.promo-card-photo {
+  position: relative;
   border-radius: var(--radius-md);
-  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+  overflow: hidden;
+  min-height: 186px;
+  background-color: #141414;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform var(--t-fast) var(--ease-out), box-shadow var(--t-fast);
 }
 
-.promo-tile:hover {
-  border-color: var(--accent);
-  box-shadow: var(--shadow-sm);
+.promo-card-photo:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
-.promo-tile__kicker {
+.promo-card-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 360ms var(--ease-out);
+}
+
+.promo-card-photo:hover img {
+  transform: scale(1.04);
+}
+
+.promo-card-photo__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 16, 16, 0.16) 0%, rgba(16, 16, 16, 0.88) 100%);
+}
+
+.promo-card-photo__body {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.promo-card-photo__badge {
   display: inline-block;
-  font-size: 0.8125rem;
+  padding: 3px 9px;
+  border-radius: 4px;
+  background-color: var(--promo);
+  color: #FFFFFF;
+  font-size: 0.78rem;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--promo);
-  margin-bottom: 4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
 }
 
-.promo-tile__title {
-  font-size: 1.15rem;
+.promo-card-photo__badge--green {
+  background-color: var(--accent);
+  color: #FFFFFF;
+}
+
+html[data-theme="dark"] .promo-card-photo__badge--green {
+  background-color: #36B258;
+  color: #0B120D;
+}
+
+.promo-card-photo__title {
+  color: #FFFFFF;
+  font-size: 1.2rem;
   font-weight: 800;
   line-height: 1.25;
 }
 
-.promo-tile__copy {
+.promo-card-photo__meta {
   margin-top: 6px;
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
-}
-
-.promo-tile__cta {
-  margin-top: 10px;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 4px;
+  justify-content: space-between;
+  gap: 8px;
   font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--accent);
+  color: #EDEDED;
 }
 
-.promo-tile__img {
-  width: 112px;
-  height: 112px;
-  border-radius: var(--radius-sm);
-  object-fit: cover;
-  background-color: var(--bg-surface-muted);
+.promo-card-photo__cta {
+  font-weight: 700;
+  color: #82E09A;
+  white-space: nowrap;
 }
 
 /* ==========================================================================
-   Category Tiles (Compact 6-up Desktop, 3-up Tablet, 2-up Mobile)
+   Home 1 — Shop by Category (3x2 Supermarket Department Aisles)
    ========================================================================== */
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 980px) {
   .category-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 560px) {
   .category-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     gap: 12px;
   }
 }
 
 .category-tile {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 118px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  padding: 12px;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
+  border-radius: var(--radius-md);
   transition: border-color var(--t-fast) var(--ease-out), transform var(--t-fast) var(--ease-out), box-shadow var(--t-fast);
 }
 
@@ -1065,7 +1100,9 @@ ul, ol {
 }
 
 .category-tile__media {
+  width: 118px;
   aspect-ratio: 4 / 3;
+  border-radius: var(--radius-xs);
   overflow: hidden;
   background-color: var(--bg-surface-muted);
 }
@@ -1078,28 +1115,45 @@ ul, ol {
 }
 
 .category-tile:hover .category-tile__media img {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 .category-tile__body {
-  padding: 12px 14px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.category-tile__top {
+  display: flex;
+  align-items: baseline;
   justify-content: space-between;
   gap: 8px;
 }
 
 .category-tile__name {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.0625rem;
   font-weight: 700;
   color: var(--text-primary);
 }
 
 .category-tile__count {
   font-size: 0.875rem;
-  color: var(--text-muted);
+  font-weight: 600;
+  color: var(--accent);
   white-space: nowrap;
+}
+
+.category-tile__desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.38;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* ==========================================================================
@@ -1562,20 +1616,14 @@ ul, ol {
   font-variant-numeric: tabular-nums;
 }
 
-/* Pantry Cupboard Category Strip */
+/* Pantry Restock — 2x2 Structured Pantry Cupboard Merchandising Boards */
 .pantry-led-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
 }
 
-@media (max-width: 1024px) {
-  .pantry-led-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 520px) {
+@media (max-width: 820px) {
   .pantry-led-grid {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1584,23 +1632,32 @@ ul, ol {
 .pantry-shelf-card {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-top: 3px solid var(--accent);
-  border-radius: var(--radius-sm);
-  padding: 16px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
 .pantry-shelf-card__head {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
+  padding: 14px 18px;
+  background-color: var(--bg-surface-muted);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.pantry-shelf-card__head-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
 }
 
 .pantry-shelf-card__thumb {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: var(--radius-xs);
   object-fit: cover;
   flex-shrink: 0;
@@ -1610,25 +1667,47 @@ ul, ol {
   font-size: 1.125rem;
 }
 
-.pantry-shelf-card p {
-  font-size: 0.9375rem;
+.pantry-shelf-card__desc {
+  font-size: 0.9rem;
   color: var(--text-secondary);
 }
 
 .pantry-shelf-list {
+  padding: 8px 18px 14px;
   display: grid;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 10px;
-  border-top: 1px solid var(--border-subtle);
+  gap: 2px;
 }
 
 .pantry-shelf-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  gap: 12px;
+  padding-block: 10px;
+  border-bottom: 1px solid var(--border-subtle);
   font-size: 0.9375rem;
+}
+
+.pantry-shelf-item:last-child {
+  border-bottom: 0;
+}
+
+.pantry-shelf-item__name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pantry-shelf-item__pack {
+  margin-inline-start: 6px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.pantry-shelf-item__price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 /* Shop by Meal — Food-Led Horizontal Merchandising Board */
@@ -1827,45 +1906,127 @@ ul, ol {
 }
 
 /* ==========================================================================
-   Home 2 — "Your Week, Sorted" Household Planning Design Language
+   Home 2 — "Your Week, Sorted" Structured Weekly Planner Workspace Masthead
    ========================================================================== */
-.home2-masthead {
+.home2-planner-hero {
   background-color: var(--bg-surface);
   border-bottom: 1px solid var(--border-subtle);
-  padding-block: clamp(24px, 3.5vw, 40px);
+  padding-block: clamp(24px, 3.8vw, 44px);
 }
 
-.home2-masthead__top {
+.home2-planner-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(20px, 3.5vw, 36px);
+  align-items: stretch;
+}
+
+@media (max-width: 960px) {
+  .home2-planner-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.home2-planner-panel {
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: clamp(20px, 3vw, 30px);
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 16px 28px;
-  margin-bottom: 20px;
+  gap: 18px;
 }
 
+.home2-planner-panel__title,
 .home2-masthead__title {
-  font-size: clamp(2rem, 3.6vw, 2.9rem);
+  font-size: clamp(2rem, 3.6vw, 2.85rem);
   font-weight: 800;
+  line-height: 1.08;
 }
 
+.home2-planner-panel__lead,
 .home2-masthead__lead {
-  max-width: 56ch;
-  font-size: 1.0625rem;
+  margin-top: 10px;
+  font-size: 1.03125rem;
+  color: var(--text-secondary);
+  max-width: 54ch;
+}
+
+.home2-routine-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 520px) {
+  .home2-routine-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.home2-routine-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 12px 14px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  text-align: start;
+  transition: border-color var(--t-fast), background-color var(--t-fast);
+}
+
+.home2-routine-btn:hover {
+  border-color: var(--accent);
+  background-color: var(--accent-soft);
+}
+
+.home2-routine-btn__kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.home2-routine-btn__name {
+  font-family: var(--font-display);
+  font-size: 0.96875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+.home2-routine-btn__meta,
+.home2-routine-btn small {
+  display: block;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  line-height: 1.35;
   color: var(--text-secondary);
 }
 
-.home2-masthead__banner {
+.home2-planner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.home2-planner-visual {
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
-  min-height: clamp(250px, 28vw, 340px);
+  min-height: 320px;
   background-color: #141414;
   display: flex;
   align-items: flex-end;
 }
 
-.home2-masthead__banner img {
+.home2-planner-visual img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1873,62 +2034,54 @@ ul, ol {
   object-fit: cover;
 }
 
-.home2-masthead__banner::after {
+.home2-planner-visual::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(16, 16, 16, 0.12) 20%, rgba(16, 16, 16, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(16, 16, 16, 0.08) 28%, rgba(16, 16, 16, 0.88) 100%);
 }
 
-.home2-plan-bar {
+.home2-planner-stats {
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: clamp(16px, 2.5vw, 24px);
+  padding: 18px 20px;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-
-@media (max-width: 960px) {
-  .home2-plan-bar {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 520px) {
-  .home2-plan-bar {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-.home2-plan-pill {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
-  padding: 12px 14px;
-  border-radius: var(--radius-sm);
-  background-color: rgba(255, 255, 255, 0.95);
-  color: #222820;
+  color: #FFFFFF;
+}
+
+@media (max-width: 460px) {
+  .home2-planner-stats {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+}
+
+.home2-stat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: var(--radius-xs);
+  background: rgba(16, 16, 16, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.home2-stat-box__val,
+.home2-stat-box strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
   font-weight: 700;
-  font-size: 0.9375rem;
-  transition: transform var(--t-fast), background-color var(--t-fast);
+  color: #FFFFFF;
 }
 
-.home2-plan-pill:hover {
-  background-color: #E9F2E5;
-  transform: translateY(-1px);
-}
-
-html[data-theme="dark"] .home2-plan-pill {
-  background-color: rgba(25, 25, 25, 0.94);
-  color: #F4F4F4;
-  border: 1px solid #3C3C3C;
-}
-
-html[data-theme="dark"] .home2-plan-pill:hover {
-  border-color: var(--accent);
+.home2-stat-box__lbl,
+.home2-stat-box span {
+  font-size: 0.8125rem;
+  color: #DADADA;
 }
 
 /* Interactive Weekly Basket Builder (Home 2) */
