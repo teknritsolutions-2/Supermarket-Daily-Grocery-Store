@@ -60,8 +60,10 @@
               '<span class="qty-stepper__val">' + item.qty + '</span>' +
               '<button type="button" class="qty-stepper__btn js-cart-inc" data-id="' + ui.escapeHtml(prod.id) + '" data-pack="' + ui.escapeHtml(item.pack) + '" aria-label="Increase quantity of ' + ui.escapeHtml(prod.name) + '">+</button>' +
             '</div>' +
-            '<div class="cart-row__total">' + ui.escapeHtml(cfg.formatINR(item.lineTotalPaise)) + '</div>' +
-            '<button type="button" class="cart-row__remove js-cart-remove" data-id="' + ui.escapeHtml(prod.id) + '" data-pack="' + ui.escapeHtml(item.pack) + '">Remove</button>' +
+            '<div class="cart-row__price-col">' +
+              '<div class="cart-row__total">' + ui.escapeHtml(cfg.formatINR(item.lineTotalPaise)) + '</div>' +
+              '<button type="button" class="cart-row__remove js-cart-remove" data-id="' + ui.escapeHtml(prod.id) + '" data-pack="' + ui.escapeHtml(item.pack) + '">Remove</button>' +
+            '</div>' +
           '</div>' +
         '</div>'
       );

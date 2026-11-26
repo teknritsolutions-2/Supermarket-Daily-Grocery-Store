@@ -83,6 +83,18 @@ html[data-theme="dark"] .btn--outline:hover {
   background-color: var(--accent-soft);
 }
 
+html[data-theme="dark"] .btn--delivery-checkout {
+  background-color: transparent;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+html[data-theme="dark"] .btn--delivery-checkout:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
 html[data-theme="dark"] .cart-pill {
   background-color: #36B258;
   color: #0B120D;
