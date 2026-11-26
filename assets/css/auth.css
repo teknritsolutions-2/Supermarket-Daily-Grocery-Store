@@ -1,73 +1,54 @@
 /* ==========================================================================
-   FreshAisle — Authentication Pages (Login & Signup)
+   FreshAisle — Authentication Pages (Centered Background-Image Layout)
+   Consistent full-page photographic backdrop + centered card across all viewports.
    ========================================================================== */
 
 .auth-shell {
-  min-height: 100dvh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: stretch;
-  background-color: var(--bg-page);
-}
-
-.auth-visual {
   position: relative;
   min-height: 100dvh;
-  background-color: #162018;
-  overflow: hidden;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 4vw, 48px) 16px;
+  background-color: #141414;
 }
 
-.auth-visual img {
-  position: absolute;
+.auth-bg {
+  position: fixed;
   inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.auth-bg__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
-.auth-visual__scrim {
+.auth-bg__scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(16, 20, 17, 0.14) 30%, rgba(16, 20, 17, 0.85) 100%);
+  background: rgba(16, 16, 16, 0.54);
 }
 
-.auth-visual__caption {
-  position: relative;
-  z-index: 2;
-  padding: clamp(24px, 4vw, 44px);
-  color: #FFFFFF;
-  max-width: 48ch;
-}
-
-.auth-visual__caption h2 {
-  color: #FFFFFF;
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-}
-
-.auth-visual__caption p {
-  margin-top: 8px;
-  color: #E7ECE4;
-  font-size: 1rem;
-}
-
-.auth-panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(24px, 4vw, 48px) clamp(16px, 4vw, 40px);
+html[data-theme="dark"] .auth-bg__scrim {
+  background: rgba(10, 10, 10, 0.72);
 }
 
 .auth-card {
-  width: min(100%, 440px);
-  margin-inline: auto;
-  padding: clamp(24px, 3vw, 34px);
+  position: relative;
+  z-index: 2;
+  width: min(100%, 448px);
+  margin-block: auto;
+  padding: clamp(22px, 3.2vw, 34px);
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.34);
 }
 
 .auth-card__top {
@@ -75,7 +56,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .auth-card__tools {
@@ -85,20 +66,20 @@
 }
 
 .auth-card__title {
-  font-size: clamp(1.6rem, 2.8vw, 2rem);
+  font-size: clamp(1.55rem, 2.8vw, 1.95rem);
   font-weight: 800;
 }
 
 .auth-card__intro {
   margin-top: 6px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   font-size: 0.96875rem;
   color: var(--text-secondary);
 }
 
 .auth-form {
   display: grid;
-  gap: 14px;
+  gap: 13px;
 }
 
 .password-wrap {
@@ -151,7 +132,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px 14px;
   flex-wrap: wrap;
   font-size: 0.9375rem;
 }
@@ -191,7 +172,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-block: 18px;
+  margin-block: 16px;
   color: var(--text-muted);
   font-size: 0.875rem;
 }
@@ -235,9 +216,9 @@
 }
 
 .auth-feedback {
-  margin-top: 14px;
+  margin-top: 12px;
   font-size: 0.9375rem;
-  min-height: 1.4em;
+  min-height: 1.2em;
 }
 
 .auth-feedback.is-info {
@@ -248,7 +229,7 @@
 }
 
 .auth-switch {
-  margin-top: 18px;
+  margin-top: 16px;
   text-align: center;
   font-size: 0.9375rem;
   color: var(--text-secondary);
@@ -257,13 +238,4 @@
 .auth-switch a {
   color: var(--accent);
   font-weight: 700;
-}
-
-@media (max-width: 960px) {
-  .auth-shell {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .auth-visual {
-    min-height: 220px;
-  }
 }

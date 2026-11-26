@@ -48,28 +48,11 @@
       }).join('');
     }
 
-    // 4. Everyday Essentials (6 compact horizontal staple cards)
+    // 4. Everyday Essentials (6 compact horizontal staple cards inside divided shelf)
     var essGrid = document.getElementById('home1EssentialsGrid');
     if (essGrid) {
       var essIds = ['da-milk', 'da-eggs', 'pa-rice', 'pa-wheat-atta', 'bk-whole-wheat-bread', 'pa-cooking-oil'];
-      essGrid.innerHTML = essIds.map(function (id) {
-        var p = cat.getProductById(id);
-        if (!p) return '';
-        var price = cat.getEffectivePricePaise(p, p.pack);
-        return (
-          '<article class="staple-card">' +
-            '<div class="staple-card__img"><img src="' + ui.escapeHtml(cfg.resolvePath(p.image)) + '" alt="' + ui.escapeHtml(p.alt || p.name) + '" loading="lazy" width="96" height="84"></div>' +
-            '<div>' +
-              '<h3 class="staple-card__title"><button type="button" class="product-card__title-btn js-quick-open" data-id="' + ui.escapeHtml(p.id) + '">' + ui.escapeHtml(p.name) + '</button></h3>' +
-              '<p class="staple-card__meta">' + ui.escapeHtml(p.pack) + '</p>' +
-              '<div class="staple-card__foot">' +
-                '<span class="staple-card__price">' + ui.escapeHtml(cfg.formatINR(price)) + '</span>' +
-                '<button type="button" class="btn btn--primary btn--sm js-quick-add" data-id="' + ui.escapeHtml(p.id) + '" data-pack="' + ui.escapeHtml(p.pack) + '">+ Add</button>' +
-              '</div>' +
-            '</div>' +
-          '</article>'
-        );
-      }).join('');
+      essGrid.innerHTML = essIds.map(renderCompactStapleCard).join('');
     }
 
     // 5. Pantry Restock shelf cards
@@ -96,7 +79,7 @@
         return (
           '<div class="pantry-shelf-card">' +
             '<div class="pantry-shelf-card__head">' +
-              '<img class="pantry-shelf-card__thumb" src="' + ui.escapeHtml(cfg.resolvePath(sh.img)) + '" alt="' + ui.escapeHtml(sh.title) + '" width="60" height="60">' +
+              '<img class="pantry-shelf-card__thumb" src="' + ui.escapeHtml(cfg.resolvePath(sh.img)) + '" alt="' + ui.escapeHtml(sh.title) + '" width="56" height="56">' +
               '<div><h3>' + ui.escapeHtml(sh.title) + '</h3><p>' + ui.escapeHtml(sh.desc) + '</p></div>' +
             '</div>' +
             '<div class="pantry-shelf-list">' + rows + '</div>' +
@@ -105,22 +88,50 @@
       }).join('');
     }
 
-    // 6. Shop by Meal
+    // 6. Shop by Meal — Food-Led Horizontal Merchandising Board with interactive ingredient chips
     var mealGrid = document.getElementById('home1MealGrid');
     if (mealGrid && offers) {
       mealGrid.innerHTML = offers.mealCollections.map(function (m) {
+        var chips = m.productIds.slice(0, 3).map(function (pid) {
+          var p = cat.getProductById(pid);
+          if (!p) return '';
+          return '<button type="button" class="meal-ing-btn js-quick-open" data-id="' + ui.escapeHtml(p.id) + '">' + ui.escapeHtml(p.name) + '</button>';
+        }).join('');
         return (
-          '<article class="meal-card">' +
-            '<div class="meal-card__media"><img src="' + ui.escapeHtml(cfg.resolvePath(m.image)) + '" alt="' + ui.escapeHtml(m.alt) + '" loading="lazy" width="480" height="300"></div>' +
-            '<div class="meal-card__body">' +
+          '<article class="meal-row-card">' +
+            '<div class="meal-row-card__media"><img src="' + ui.escapeHtml(cfg.resolvePath(m.image)) + '" alt="' + ui.escapeHtml(m.alt) + '" loading="lazy" width="360" height="240"></div>' +
+            '<div class="meal-row-card__body">' +
               '<h3>' + ui.escapeHtml(m.title) + '</h3>' +
               '<p>' + ui.escapeHtml(m.summary) + '</p>' +
-              '<button type="button" class="btn btn--outline btn--sm js-add-meal-pack" data-meal="' + ui.escapeHtml(m.id) + '">Add Meal Basket</button>' +
+              '<div class="meal-row-card__chips">' + chips + '</div>' +
+              '<div class="meal-row-card__foot">' +
+                '<button type="button" class="btn btn--primary btn--sm js-add-meal-pack" data-meal="' + ui.escapeHtml(m.id) + '">Add Meal Basket</button>' +
+                '<a class="text-link" href="' + ui.escapeHtml(cfg.resolvePath('pages/home2.html')) + '#weeklyBuilder">Customize</a>' +
+              '</div>' +
             '</div>' +
           '</article>'
         );
       }).join('');
     }
+  }
+
+  function renderCompactStapleCard(id) {
+    var p = cat.getProductById(id);
+    if (!p) return '';
+    var price = cat.getEffectivePricePaise(p, p.pack);
+    return (
+      '<article class="staple-card">' +
+        '<div class="staple-card__img"><img src="' + ui.escapeHtml(cfg.resolvePath(p.image)) + '" alt="' + ui.escapeHtml(p.alt || p.name) + '" loading="lazy" width="88" height="76"></div>' +
+        '<div>' +
+          '<h3 class="staple-card__title"><button type="button" class="product-card__title-btn js-quick-open" data-id="' + ui.escapeHtml(p.id) + '">' + ui.escapeHtml(p.name) + '</button></h3>' +
+          '<p class="staple-card__meta">' + ui.escapeHtml(p.pack) + '</p>' +
+          '<div class="staple-card__foot">' +
+            '<span class="staple-card__price">' + ui.escapeHtml(cfg.formatINR(price)) + '</span>' +
+            '<button type="button" class="btn btn--primary btn--sm js-quick-add" data-id="' + ui.escapeHtml(p.id) + '" data-pack="' + ui.escapeHtml(p.pack) + '">+ Add</button>' +
+          '</div>' +
+        '</div>' +
+      '</article>'
+    );
   }
 
   /* --------------------------------------------------------------------------
@@ -130,19 +141,22 @@
     var builderTabs = document.getElementById('home2BuilderTabs');
     var builderList = document.getElementById('home2BuilderChecklist');
     var builderCount = document.getElementById('home2BuilderCount');
+    var builderUnits = document.getElementById('home2BuilderUnits');
+    var builderSavings = document.getElementById('home2BuilderSavings');
     var builderTotal = document.getElementById('home2BuilderTotal');
+    var toggleAllBtn = document.getElementById('home2BuilderToggleAll');
     var addCartBtn = document.getElementById('home2BuilderAddCart');
     var addListBtn = document.getElementById('home2BuilderAddList');
 
     if (builderTabs && builderList && offers) {
       var activeMealId = 'breakfast';
-      var selectedIds = {};
+      var selectedItems = {};
 
       function loadMeal(mealId) {
         activeMealId = mealId;
         var meal = offers.mealCollections.find(function (m) { return m.id === mealId; }) || offers.mealCollections[0];
-        selectedIds = {};
-        meal.productIds.forEach(function (id) { selectedIds[id] = true; });
+        selectedItems = {};
+        meal.productIds.forEach(function (id) { selectedItems[id] = { checked: true, qty: 1 }; });
         renderBuilder();
       }
 
@@ -155,31 +169,48 @@
 
         var meal = offers.mealCollections.find(function (m) { return m.id === activeMealId; });
         var totalPaise = 0;
+        var totalSavings = 0;
         var chosenCount = 0;
+        var unitSum = 0;
 
         builderList.innerHTML = meal.productIds.map(function (id) {
           var p = cat.getProductById(id);
           if (!p) return '';
+          var entry = selectedItems[id] || { checked: false, qty: 1 };
           var eff = cat.getEffectivePricePaise(p, p.pack);
-          var checked = Boolean(selectedIds[id]);
-          if (checked) {
-            totalPaise += eff;
+          var sav = cat.getSavingsPaise(p, p.pack);
+          if (entry.checked) {
+            totalPaise += eff * entry.qty;
+            totalSavings += sav * entry.qty;
             chosenCount += 1;
+            unitSum += entry.qty;
           }
           return (
             '<div class="basket-check-row">' +
               '<label class="basket-check-row__label">' +
-                '<input type="checkbox" class="js-builder-chk" data-id="' + ui.escapeHtml(p.id) + '"' + (checked ? ' checked' : '') + '>' +
+                '<input type="checkbox" class="js-builder-chk" data-id="' + ui.escapeHtml(p.id) + '"' + (entry.checked ? ' checked' : '') + '>' +
                 '<img class="basket-check-row__thumb" src="' + ui.escapeHtml(cfg.resolvePath(p.image)) + '" alt="' + ui.escapeHtml(p.alt || p.name) + '" width="44" height="44">' +
-                '<span><strong>' + ui.escapeHtml(p.name) + '</strong><br><span class="text-muted" style="font-size:0.875rem">' + ui.escapeHtml(p.pack) + '</span></span>' +
+                '<span><strong>' + ui.escapeHtml(p.name) + '</strong><br><span class="text-muted" style="font-size:0.875rem">' + ui.escapeHtml(p.pack) + ' · ' + ui.escapeHtml(cfg.formatINR(eff)) + '</span></span>' +
               '</label>' +
-              '<strong>' + ui.escapeHtml(cfg.formatINR(eff)) + '</strong>' +
+              '<div class="basket-check-row__controls">' +
+                '<div class="basket-qty-mini">' +
+                  '<button type="button" class="js-builder-dec" data-id="' + ui.escapeHtml(p.id) + '" aria-label="Decrease quantity of ' + ui.escapeHtml(p.name) + '">&minus;</button>' +
+                  '<span>' + entry.qty + '</span>' +
+                  '<button type="button" class="js-builder-inc" data-id="' + ui.escapeHtml(p.id) + '" aria-label="Increase quantity of ' + ui.escapeHtml(p.name) + '">+</button>' +
+                '</div>' +
+                '<strong>' + ui.escapeHtml(cfg.formatINR(eff * entry.qty)) + '</strong>' +
+              '</div>' +
             '</div>'
           );
         }).join('');
 
         builderCount.textContent = chosenCount + ' of ' + meal.productIds.length + ' items selected';
+        if (builderUnits) builderUnits.textContent = String(unitSum);
+        if (builderSavings) builderSavings.textContent = '-' + cfg.formatINR(totalSavings);
         builderTotal.textContent = cfg.formatINR(totalPaise);
+        if (toggleAllBtn) {
+          toggleAllBtn.textContent = chosenCount === meal.productIds.length ? 'Uncheck All' : 'Select All';
+        }
       }
 
       builderTabs.addEventListener('click', function (e) {
@@ -190,29 +221,68 @@
       builderList.addEventListener('change', function (e) {
         var chk = e.target.closest('.js-builder-chk');
         if (chk) {
-          selectedIds[chk.getAttribute('data-id')] = chk.checked;
+          var id = chk.getAttribute('data-id');
+          if (!selectedItems[id]) selectedItems[id] = { checked: chk.checked, qty: 1 };
+          selectedItems[id].checked = chk.checked;
           renderBuilder();
         }
       });
 
+      builderList.addEventListener('click', function (e) {
+        var dec = e.target.closest('.js-builder-dec');
+        if (dec) {
+          var idD = dec.getAttribute('data-id');
+          if (selectedItems[idD]) {
+            selectedItems[idD].qty = Math.max(1, selectedItems[idD].qty - 1);
+            renderBuilder();
+          }
+          return;
+        }
+        var inc = e.target.closest('.js-builder-inc');
+        if (inc) {
+          var idI = inc.getAttribute('data-id');
+          if (selectedItems[idI]) {
+            selectedItems[idI].qty = Math.min(20, selectedItems[idI].qty + 1);
+            selectedItems[idI].checked = true;
+            renderBuilder();
+          }
+        }
+      });
+
+      if (toggleAllBtn) {
+        toggleAllBtn.addEventListener('click', function () {
+          var meal = offers.mealCollections.find(function (m) { return m.id === activeMealId; });
+          var allChecked = meal.productIds.every(function (id) { return selectedItems[id] && selectedItems[id].checked; });
+          meal.productIds.forEach(function (id) {
+            if (!selectedItems[id]) selectedItems[id] = { checked: !allChecked, qty: 1 };
+            else selectedItems[id].checked = !allChecked;
+          });
+          renderBuilder();
+        });
+      }
+
       if (addCartBtn) {
         addCartBtn.addEventListener('click', function () {
-          var ids = Object.keys(selectedIds).filter(function (k) { return selectedIds[k]; });
+          var ids = Object.keys(selectedItems).filter(function (k) { return selectedItems[k].checked; });
           if (!ids.length) {
             store.showToast('Select at least one item first.');
             return;
           }
+          var units = 0;
           ids.forEach(function (id) {
             var p = cat.getProductById(id);
-            if (p) store.addToCart(p.id, p.pack, 1);
+            if (p) {
+              store.addToCart(p.id, p.pack, selectedItems[id].qty);
+              units += selectedItems[id].qty;
+            }
           });
-          store.showToast('Added ' + ids.length + ' selected ingredients to cart.');
+          store.showToast('Added ' + units + ' units across ' + ids.length + ' items to cart.');
         });
       }
 
       if (addListBtn) {
         addListBtn.addEventListener('click', function () {
-          var ids = Object.keys(selectedIds).filter(function (k) { return selectedIds[k]; });
+          var ids = Object.keys(selectedItems).filter(function (k) { return selectedItems[k].checked; });
           if (!ids.length) {
             store.showToast('Select at least one item first.');
             return;
@@ -221,7 +291,7 @@
           var targetList = lists[0] || store.createList('Weekly Groceries');
           ids.forEach(function (id) {
             var p = cat.getProductById(id);
-            if (p) store.addListItem(targetList.id, p.id, p.pack, 1);
+            if (p) store.addListItem(targetList.id, p.id, p.pack, selectedItems[id].qty);
           });
           store.showToast('Saved ' + ids.length + ' items to "' + targetList.name + '".');
         });
@@ -230,31 +300,60 @@
       loadMeal('breakfast');
     }
 
-    // Breakfast & Morning Essentials grid (4 items)
+    // Breakfast & Morning Essentials compact shelf stack (4 items)
     var bkGrid = document.getElementById('home2BreakfastGrid');
     if (bkGrid) {
-      bkGrid.innerHTML = ['bk-whole-wheat-bread', 'da-milk', 'da-eggs', 'pa-oats'].map(function (id) {
-        var p = cat.getProductById(id);
-        return p ? ui.renderProductCardHTML(p) : '';
-      }).join('');
+      bkGrid.innerHTML = ['bk-whole-wheat-bread', 'da-milk', 'da-eggs', 'pa-oats'].map(renderCompactStapleCard).join('');
     }
 
-    // Fresh Fruits & Seasonal Produce grid (4 items)
+    // Fresh Fruits & Seasonal Produce — 2 Collection Boards
     var prGrid = document.getElementById('home2ProduceGrid');
     if (prGrid) {
-      prGrid.innerHTML = ['fr-oranges', 'fr-grapes', 'vg-carrots', 'vg-cucumbers'].map(function (id) {
-        var p = cat.getProductById(id);
-        return p ? ui.renderProductCardHTML(p) : '';
-      }).join('');
+      var produceCollections = [
+        {
+          title: 'Orchard & Citrus Picks',
+          subtitle: 'Vitamin-rich fruit bowls for weekday mornings',
+          img: 'assets/images/fruits/oranges.jpg',
+          link: 'pages/products.html?category=fruits',
+          ids: ['fr-oranges', 'fr-grapes', 'fr-bananas']
+        },
+        {
+          title: 'Salad & Everyday Cooking Veg',
+          subtitle: 'Crisp carrots, cucumbers, and cooking greens',
+          img: 'assets/images/vegetables/carrots.jpg',
+          link: 'pages/products.html?category=vegetables',
+          ids: ['vg-carrots', 'vg-cucumbers', 'vg-capsicum']
+        }
+      ];
+      prGrid.innerHTML = produceCollections.map(renderPlanningBoardHTML).join('');
     }
 
-    // Pantry Cupboard Restock grid (4 items)
+    // Lunch & Dinner Ingredient Collections — 2 Side-by-Side Planning Boards
+    var ldGrid = document.getElementById('home2LunchDinnerBoards');
+    if (ldGrid) {
+      var mealBoards = [
+        {
+          title: 'Everyday Lunch Staples',
+          subtitle: 'Dal, basmati rice, homestyle curd, and salad tomatoes',
+          img: 'assets/images/lifestyle/home2-lunch-dinner.jpg',
+          link: 'pages/products.html?category=pantry',
+          ids: ['pa-rice', 'pa-toor-dal', 'da-curd', 'vg-tomatoes']
+        },
+        {
+          title: 'Quick Dinner Prep',
+          subtitle: 'Malai paneer, bell peppers, whole-wheat atta, and penne',
+          img: 'assets/images/lifestyle/about-kitchen.jpg',
+          link: 'pages/products.html?category=dairy',
+          ids: ['da-paneer', 'vg-capsicum', 'pa-wheat-atta', 'pa-pasta']
+        }
+      ];
+      ldGrid.innerHTML = mealBoards.map(renderPlanningBoardHTML).join('');
+    }
+
+    // Pantry Cupboard Restock compact ledger (4 items)
     var paGrid = document.getElementById('home2PantryGrid');
     if (paGrid) {
-      paGrid.innerHTML = ['pa-rice', 'pa-toor-dal', 'pa-cooking-oil', 'da-ghee'].map(function (id) {
-        var p = cat.getProductById(id);
-        return p ? ui.renderProductCardHTML(p) : '';
-      }).join('');
+      paGrid.innerHTML = ['pa-rice', 'pa-toor-dal', 'pa-cooking-oil', 'da-ghee'].map(renderCompactStapleCard).join('');
     }
 
     // Household Grocery Bundles (2-up)
@@ -272,6 +371,33 @@
     }
   }
 
+  function renderPlanningBoardHTML(board) {
+    var rows = board.ids.map(function (id) {
+      var p = cat.getProductById(id);
+      if (!p) return '';
+      var eff = cat.getEffectivePricePaise(p, p.pack);
+      return (
+        '<div class="planning-board__row">' +
+          '<span><strong>' + ui.escapeHtml(p.name) + '</strong> <span class="text-muted">(' + ui.escapeHtml(p.pack) + ')</span></span>' +
+          '<button type="button" class="btn btn--outline btn--sm js-quick-add" data-id="' + ui.escapeHtml(p.id) + '" data-pack="' + ui.escapeHtml(p.pack) + '">' + ui.escapeHtml(cfg.formatINR(eff)) + ' +</button>' +
+        '</div>'
+      );
+    }).join('');
+    return (
+      '<article class="planning-board">' +
+        '<div class="planning-board__head">' +
+          '<img src="' + ui.escapeHtml(cfg.resolvePath(board.img)) + '" alt="' + ui.escapeHtml(board.title) + '" loading="lazy" width="120" height="88">' +
+          '<div><h3 style="font-size:1.15rem">' + ui.escapeHtml(board.title) + '</h3><p class="text-muted" style="font-size:0.9375rem;margin-top:4px">' + ui.escapeHtml(board.subtitle) + '</p></div>' +
+        '</div>' +
+        '<div class="planning-board__rows">' + rows + '</div>' +
+        '<div class="planning-board__foot">' +
+          '<button type="button" class="btn btn--primary btn--sm js-add-board" data-board-ids="' + ui.escapeHtml(board.ids.join(',')) + '">Add All to Cart</button>' +
+          '<a class="btn btn--outline btn--sm" href="' + ui.escapeHtml(cfg.resolvePath(board.link)) + '">Browse Aisle</a>' +
+        '</div>' +
+      '</article>'
+    );
+  }
+
   function renderBundleCardHTML(bundle) {
     var totals = offers.computeBundleTotals(bundle);
     var chips = bundle.items.map(function (it) {
@@ -280,7 +406,7 @@
       return (
         '<span class="bundle-item-chip">' +
           '<img src="' + ui.escapeHtml(cfg.resolvePath(p.image)) + '" alt="' + ui.escapeHtml(p.name) + '" width="28" height="28">' +
-          '<span>' + ui.escapeHtml(p.name) + ' (' + ui.escapeHtml(it.pack) + ')</span>' +
+          '<span>' + it.qty + ' &times; ' + ui.escapeHtml(p.name) + ' (' + ui.escapeHtml(it.pack) + ')</span>' +
         '</span>'
       );
     }).join('');
@@ -517,6 +643,17 @@
         });
         store.showToast('Added ' + m.title + ' ingredients to cart');
       }
+      return;
+    }
+
+    var abd = e.target.closest('.js-add-board');
+    if (abd) {
+      var ids = (abd.getAttribute('data-board-ids') || '').split(',').filter(Boolean);
+      ids.forEach(function (pid) {
+        var p = cat.getProductById(pid);
+        if (p) store.addToCart(p.id, p.pack, 1);
+      });
+      if (ids.length) store.showToast('Added ' + ids.length + ' items to cart');
     }
   });
 

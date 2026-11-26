@@ -1,74 +1,113 @@
 /* ==========================================================================
-   FreshAisle — Dark Mode (Genuinely Dark Charcoal, Not Green-Tinted Light Mode)
+   FreshAisle — Dark Mode (Pure Neutral Charcoal System, Green Reserved for Accents)
    ========================================================================== */
 
 html[data-theme="dark"] {
-  --bg-page: #101411;
-  --bg-surface: #171D18;
-  --bg-surface-muted: #1C231D;
-  --bg-elevated: #222B24;
-  --bg-dark-band: #141A15;
+  --bg-page: #101010;
+  --bg-surface: #191919;
+  --bg-surface-muted: #202020;
+  --bg-elevated: #292929;
+  --bg-dark-band: #141414;
 
-  --text-primary: #F2F4F0;
-  --text-secondary: #C1C9BE;
-  --text-muted: #98A296;
-  --text-on-dark: #F2F4F0;
-  --text-on-dark-muted: #C1C9BE;
+  --text-primary: #F4F4F4;
+  --text-secondary: #C4C4C4;
+  --text-muted: #A0A0A0;
+  --text-on-dark: #F4F4F4;
+  --text-on-dark-muted: #C4C4C4;
 
-  --accent: #9AC88F;
-  --accent-hover: #B2DA9E;
-  --accent-soft: rgba(154, 200, 143, 0.14);
-  --accent-border: rgba(154, 200, 143, 0.42);
+  --accent: #68B876;
+  --accent-hover: #82C98E;
+  --accent-soft: rgba(104, 184, 118, 0.14);
+  --accent-border: rgba(104, 184, 118, 0.42);
 
   --promo: #F07E5A;
-  --promo-soft: rgba(240, 126, 90, 0.15);
+  --promo-soft: rgba(240, 126, 90, 0.16);
 
-  --border-subtle: rgba(255, 255, 255, 0.11);
-  --border-strong: rgba(255, 255, 255, 0.23);
-  --header-bg: rgba(16, 20, 17, 0.92);
+  --border-subtle: #2C2C2C;
+  --border-strong: #3C3C3C;
+  --header-bg: rgba(16, 16, 16, 0.94);
 
-  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.36);
-  --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.46);
-  --shadow-lg: 0 22px 54px rgba(0, 0, 0, 0.65);
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.42);
+  --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.54);
+  --shadow-lg: 0 22px 54px rgba(0, 0, 0, 0.72);
+}
+
+html[data-theme="dark"] .header-nav-bar,
+html[data-theme="dark"] .site-footer,
+html[data-theme="dark"] .page-hero,
+html[data-theme="dark"] .dash-sidebar,
+html[data-theme="dark"] .dash-mobile-header {
+  background-color: #191919;
+}
+
+html[data-theme="dark"] .header-search {
+  background-color: #141414;
+  border-color: #343434;
+}
+
+html[data-theme="dark"] .header-search:focus-within {
+  background-color: #202020;
+  border-color: var(--accent);
+}
+
+html[data-theme="dark"] .icon-control,
+html[data-theme="dark"] .mobile-menu-btn,
+html[data-theme="dark"] .mobile-drawer__close,
+html[data-theme="dark"] .fa-dialog__close,
+html[data-theme="dark"] .carousel-btn {
+  background-color: #202020;
+  border-color: #343434;
+  color: #F4F4F4;
 }
 
 html[data-theme="dark"] .btn--primary {
-  background-color: #9AC88F;
-  border-color: #9AC88F;
-  color: #101411;
+  background-color: #54A663;
+  border-color: #54A663;
+  color: #0D0D0D;
 }
 
 html[data-theme="dark"] .btn--primary:hover {
-  background-color: #B2DA9E;
-  border-color: #B2DA9E;
+  background-color: #6CC07B;
+  border-color: #6CC07B;
+}
+
+html[data-theme="dark"] .btn--outline {
+  border-color: #3C3C3C;
+  color: #F4F4F4;
+}
+
+html[data-theme="dark"] .btn--outline:hover {
+  border-color: var(--accent);
+  color: var(--accent-hover);
+  background-color: var(--accent-soft);
 }
 
 html[data-theme="dark"] .cart-pill {
-  background-color: #9AC88F;
-  color: #101411;
+  background-color: #54A663;
+  color: #0D0D0D;
 }
 
 html[data-theme="dark"] .cart-pill:hover {
-  background-color: #B2DA9E;
+  background-color: #6CC07B;
 }
 
 html[data-theme="dark"] .cart-pill__count {
-  background-color: #101411;
-  color: #9AC88F;
+  background-color: #101010;
+  color: #82C98E;
 }
 
 html[data-theme="dark"] .qty-stepper {
-  border-color: #9AC88F;
-  background-color: rgba(154, 200, 143, 0.14);
+  border-color: var(--accent);
+  background-color: var(--accent-soft);
 }
 
 html[data-theme="dark"] .qty-stepper__btn {
-  color: #B2DA9E;
+  color: var(--accent-hover);
 }
 
 html[data-theme="dark"] .qty-stepper__btn:hover {
-  background-color: #9AC88F;
-  color: #101411;
+  background-color: var(--accent);
+  color: #101010;
 }
 
 html[data-theme="dark"] .product-card__badge {
@@ -76,19 +115,51 @@ html[data-theme="dark"] .product-card__badge {
   color: #FFFFFF;
 }
 
+html[data-theme="dark"] .chip-tab {
+  background-color: #202020;
+  border-color: #343434;
+  color: #F4F4F4;
+}
+
 html[data-theme="dark"] .chip-tab.is-active,
-html[data-theme="dark"] .chip-tab[aria-pressed="true"] {
-  background-color: #9AC88F;
-  border-color: #9AC88F;
-  color: #101411;
+html[data-theme="dark"] .chip-tab[aria-pressed="true"],
+html[data-theme="dark"] .cat-tab.is-active {
+  background-color: #54A663;
+  border-color: #54A663;
+  color: #0D0D0D;
+}
+
+html[data-theme="dark"] .v-select-panel {
+  background-color: #292929;
+  border-color: #3E3E3E;
 }
 
 html[data-theme="dark"] .v-select-option[aria-selected="true"] {
-  color: #9AC88F;
+  color: var(--accent-hover);
+}
+
+html[data-theme="dark"] .variant-chip {
+  background-color: #202020;
+  border-color: #343434;
 }
 
 html[data-theme="dark"] .variant-chip.is-selected {
-  color: #B2DA9E;
+  border-color: var(--accent);
+  color: var(--accent-hover);
+}
+
+html[data-theme="dark"] .delivery-meter {
+  background-color: #202020;
+  border: 1px solid #343434;
+}
+
+html[data-theme="dark"] .delivery-meter__bar {
+  background-color: #343434;
+}
+
+html[data-theme="dark"] .notice-box {
+  background-color: #202020;
+  border-color: #3C3C3C;
 }
 
 html[data-theme="dark"] .form-error {
@@ -107,11 +178,25 @@ html[data-theme="dark"] input[type="time"] {
 }
 
 html[data-theme="dark"] .fa-toast {
-  background-color: #2A352C;
-  border: 1px solid var(--border-strong);
+  background-color: #292929;
+  color: #F4F4F4;
+  border: 1px solid #3C3C3C;
 }
 
 html[data-theme="dark"] .btn--danger-outline {
   color: #FCA5A5;
   border-color: rgba(252, 165, 165, 0.35);
+}
+
+html[data-theme="dark"] .home2-quick-link,
+html[data-theme="dark"] .provider-btn {
+  background-color: #202020;
+  border-color: #343434;
+  color: #F4F4F4;
+}
+
+html[data-theme="dark"] .home2-quick-link:hover,
+html[data-theme="dark"] .provider-btn:hover {
+  border-color: var(--accent);
+  background-color: var(--accent-soft);
 }

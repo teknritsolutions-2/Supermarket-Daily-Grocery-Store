@@ -6,12 +6,12 @@
   <meta name="site-root" content=".." />
   <title>Your Week, Sorted — Home 2 | FreshAisle</title>
   <meta name="description" content="Organize weekly grocery shopping with FreshAisle's interactive basket builder, meal ingredient collections, household bundles, and list planner." />
-  <link rel="icon" href="../assets/icons/favicon.svg?v=20261126" type="image/svg+xml" />
-  <link rel="stylesheet" href="../assets/css/fonts.css?v=20261126" />
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261126" />
-  <link rel="stylesheet" href="../assets/css/products.css?v=20261126" />
-  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=20261126" />
-  <link rel="stylesheet" href="../assets/css/rtl.css?v=20261126" />
+  <link rel="icon" href="../assets/icons/favicon.svg?v=20261126b" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/css/fonts.css?v=20261126b" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261126b" />
+  <link rel="stylesheet" href="../assets/css/products.css?v=20261126b" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=20261126b" />
+  <link rel="stylesheet" href="../assets/css/rtl.css?v=20261126b" />
   <script>
     (function(){try{var t=localStorage.getItem('freshaisle_theme');var d=localStorage.getItem('freshaisle_dir');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);if(d==='rtl'||d==='ltr')document.documentElement.setAttribute('dir',d);}catch(e){}})();
   </script>
@@ -27,7 +27,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
           </button>
           <a class="brand-mark" href="../index.html" aria-label="FreshAisle Home">
-            <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126#freshaisle-mark"></use></svg>
+            <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126b#freshaisle-mark"></use></svg>
             <span class="brand-mark__text">Fresh<span>Aisle</span></span>
           </a>
         </div>
@@ -95,7 +95,7 @@
   <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation" aria-hidden="true">
     <div class="mobile-drawer__head">
       <a class="brand-mark" href="../index.html">
-        <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126#freshaisle-mark"></use></svg>
+        <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126b#freshaisle-mark"></use></svg>
         <span class="brand-mark__text">Fresh<span>Aisle</span></span>
       </a>
       <button type="button" class="mobile-drawer__close" id="mobileMenuClose" aria-label="Close navigation menu">
@@ -137,23 +137,23 @@
   </aside>
 
   <main id="mainContent">
-    <!-- 1. Home 2 Split / Mobile-Banner Hero -->
-    <section class="home2-hero">
+    <!-- 1. Home 2 Planning Masthead Hero -->
+    <section class="home2-masthead">
       <div class="container">
-        <div class="home2-hero__grid">
-          <div class="home2-hero__content">
+        <div class="home2-masthead__top">
+          <div>
             <p class="section-kicker">Weekly Meal &amp; Grocery Planner</p>
-            <h1 class="home2-hero__title">Your Week, Sorted</h1>
-            <p class="home2-hero__lead">Organize weekday breakfasts, packed lunches, dinner prep, and pantry refills in one calm workflow. Select meal ingredients below or build reusable lists for faster weekly restocking.</p>
-            <div class="home2-quick-links">
-              <a class="home2-quick-link" href="#weeklyBuilder"><span>Build Weekly Basket</span><span>&rarr;</span></a>
-              <a class="home2-quick-link" href="./products.html"><span>Full Catalogue (48)</span><span>&rarr;</span></a>
-              <a class="home2-quick-link" href="./dashboard.html#lists"><span>My Shopping Lists</span><span>&rarr;</span></a>
-              <a class="home2-quick-link" href="./offers.html"><span>Weekly Savings</span><span>&rarr;</span></a>
-            </div>
+            <h1 class="home2-masthead__title">Your Week, Sorted</h1>
           </div>
-          <div class="home2-hero__media">
-            <img src="../assets/images/lifestyle/home2-hero.jpg" alt="Kitchen counter prepared with fresh vegetables and daily cooking ingredients" width="1200" height="800" />
+          <p class="home2-masthead__lead">Plan weekday breakfasts, packed lunches, dinner prep, and pantry refills in one structured workflow. Adjust quantities below or save directly to a reusable shopping list.</p>
+        </div>
+        <div class="home2-masthead__banner">
+          <img src="../assets/images/lifestyle/home2-hero.jpg" alt="Kitchen counter prepared with fresh vegetables and daily cooking ingredients" width="1200" height="800" />
+          <div class="home2-plan-bar">
+            <a class="home2-plan-pill" href="#weeklyBuilder"><span>Build Weekly Basket</span><span>&rarr;</span></a>
+            <a class="home2-plan-pill" href="#home2Morning"><span>Breakfast &amp; Dairy</span><span>&rarr;</span></a>
+            <a class="home2-plan-pill" href="#home2Meals"><span>Lunch &amp; Dinner Prep</span><span>&rarr;</span></a>
+            <a class="home2-plan-pill" href="./dashboard.html#lists"><span>My Shopping Lists</span><span>&rarr;</span></a>
           </div>
         </div>
       </div>
@@ -164,24 +164,31 @@
       <div class="container">
         <div class="section-head">
           <div class="section-head__copy">
-            <p class="section-kicker">Interactive Selector</p>
+            <p class="section-kicker">Interactive Planner</p>
             <h2 class="section-title">Build Your Weekly Grocery Basket</h2>
-            <p class="section-lead">Switch between meal collections, tick off what you already have in the kitchen, and send the rest to your Cart or Shopping List.</p>
+            <p class="section-lead">Pick a meal collection, adjust household quantities, untick what is already in your kitchen, and add the rest to your Cart or Shopping List.</p>
           </div>
         </div>
         <div class="basket-builder">
           <div>
-            <div class="basket-builder__tabs" id="home2BuilderTabs">
-              <button type="button" class="chip-tab is-active" data-meal-tab="breakfast" aria-pressed="true">Breakfast</button>
-              <button type="button" class="chip-tab" data-meal-tab="lunch" aria-pressed="false">Everyday Lunch</button>
-              <button type="button" class="chip-tab" data-meal-tab="dinner" aria-pressed="false">Quick Dinner</button>
-              <button type="button" class="chip-tab" data-meal-tab="teatime" aria-pressed="false">Tea-Time Snacks</button>
+            <div class="basket-builder__bar">
+              <div class="basket-builder__tabs" id="home2BuilderTabs">
+                <button type="button" class="chip-tab is-active" data-meal-tab="breakfast" aria-pressed="true">Breakfast</button>
+                <button type="button" class="chip-tab" data-meal-tab="lunch" aria-pressed="false">Everyday Lunch</button>
+                <button type="button" class="chip-tab" data-meal-tab="dinner" aria-pressed="false">Quick Dinner</button>
+                <button type="button" class="chip-tab" data-meal-tab="teatime" aria-pressed="false">Tea-Time Snacks</button>
+              </div>
+              <button type="button" class="btn btn--outline btn--sm" id="home2BuilderToggleAll">Uncheck All</button>
             </div>
             <div class="basket-checklist" id="home2BuilderChecklist"></div>
           </div>
           <div class="basket-summary-panel">
             <h3>Selected Basket Summary</h3>
             <p class="text-muted" id="home2BuilderCount">0 items selected</p>
+            <div class="summary-rows" style="padding-block:10px">
+              <div class="summary-row"><span>Total Units</span><strong id="home2BuilderUnits">0</strong></div>
+              <div class="summary-row summary-row--savings"><span>Weekly Offer Savings</span><strong id="home2BuilderSavings">-₹0</strong></div>
+            </div>
             <div>
               <span class="text-muted" style="font-size:0.875rem">Estimated Basket Subtotal</span>
               <div class="basket-summary-panel__total" id="home2BuilderTotal">₹0</div>
@@ -193,58 +200,61 @@
       </div>
     </section>
 
-    <!-- 3. Breakfast & Morning Essentials -->
-    <section class="section">
+    <!-- 3. Breakfast & Morning Essentials (Editorial Feature + Compact Shelf Stack) -->
+    <section class="section" id="home2Morning">
       <div class="container">
         <div class="section-head">
           <div class="section-head__copy">
             <p class="section-kicker">Morning Table</p>
             <h2 class="section-title">Breakfast &amp; Morning Essentials</h2>
-            <p class="section-lead">Whole-wheat loaves, chilled milk, farm eggs, and rolled oats to keep weekday mornings effortless.</p>
+            <p class="section-lead">Pair freshly sliced bread, chilled milk, farm eggs, and rolled oats from one compact morning shelf.</p>
           </div>
           <a class="text-link" href="./products.html?category=bakery">Shop Bakery &amp; Dairy</a>
         </div>
-        <div class="product-grid" id="home2BreakfastGrid"></div>
+        <div class="morning-pairing">
+          <div class="morning-feature">
+            <img src="../assets/images/lifestyle/home2-breakfast.jpg" alt="Warm breakfast table with eggs, toasted bread, and coffee" loading="lazy" width="800" height="600" />
+            <div class="morning-feature__body">
+              <h3>Weekday Morning Staples</h3>
+              <p>Keep bread, milk, eggs, and oats stocked for quick 10-minute breakfasts.</p>
+              <button type="button" class="btn btn--light btn--sm js-add-meal-pack" data-meal="breakfast">Add Morning Set</button>
+            </div>
+          </div>
+          <div class="shelf-stack" id="home2BreakfastGrid"></div>
+        </div>
       </div>
     </section>
 
-    <!-- 4. Fresh Fruits & Seasonal Produce -->
+    <!-- 4. Fresh Fruits & Seasonal Produce (Category Collection Boards) -->
     <section class="section section--surface">
       <div class="container">
         <div class="section-head">
           <div class="section-head__copy">
             <p class="section-kicker">Crisp Harvest</p>
             <h2 class="section-title">Fresh Fruits &amp; Seasonal Produce</h2>
-            <p class="section-lead">Citrus, seedless grapes, crunchy carrots, and salad cucumbers for lunchboxes and evening snacks.</p>
+            <p class="section-lead">Grouped by orchard citrus picks and everyday salad vegetables for fast weekly top-ups.</p>
           </div>
           <a class="text-link" href="./products.html?category=fruits">All Fruits &amp; Veg</a>
         </div>
-        <div class="product-grid" id="home2ProduceGrid"></div>
+        <div class="planning-board-grid" id="home2ProduceGrid"></div>
       </div>
     </section>
 
-    <!-- 5. Lunch & Dinner Ingredient Feature -->
-    <section class="section">
+    <!-- 5. Lunch & Dinner Ingredient Collections (Side-by-Side Planning Boards) -->
+    <section class="section" id="home2Meals">
       <div class="container">
-        <div class="split-panel">
-          <div class="split-panel__media">
-            <img src="../assets/images/lifestyle/home2-lunch-dinner.jpg" alt="Fresh vegetables and spices prepared on kitchen counter for dinner" loading="lazy" width="800" height="600" />
-          </div>
-          <div class="split-panel__copy">
+        <div class="section-head">
+          <div class="section-head__copy">
             <p class="section-kicker">Weekday Kitchen</p>
-            <h2>Lunch &amp; Dinner Ingredient Collections</h2>
-            <p>Pair unpolished toor dal, aged basmati rice, and fresh malai paneer with crisp bell peppers, vine tomatoes, and red onions without scrolling through endless aisles.</p>
-            <p>Use the meal tabs above or open the full searchable catalogue to filter specifically by grains, lentils, or chilled dairy.</p>
-            <div class="hero-actions">
-              <a class="btn btn--primary" href="./products.html?category=pantry">Explore Pantry &amp; Grains</a>
-              <a class="btn btn--outline" href="./products.html?category=vegetables">Shop Vegetables</a>
-            </div>
+            <h2 class="section-title">Lunch &amp; Dinner Ingredient Collections</h2>
+            <p class="section-lead">Two ready-to-shop cooking boards pairing grains, dals, paneer, and everyday vegetables.</p>
           </div>
         </div>
+        <div class="planning-board-grid" id="home2LunchDinnerBoards"></div>
       </div>
     </section>
 
-    <!-- 6. Pantry Cupboard Restock -->
+    <!-- 6. Pantry Cupboard Restock (Compact Staple Ledger) -->
     <section class="section section--muted">
       <div class="container">
         <div class="section-head">
@@ -253,8 +263,9 @@
             <h2 class="section-title">Pantry Cupboard Restock</h2>
             <p class="section-lead">Core household staples in 1 kg and 5 kg family packs.</p>
           </div>
+          <a class="text-link" href="./products.html?category=pantry">Browse Pantry Aisle</a>
         </div>
-        <div class="product-grid" id="home2PantryGrid"></div>
+        <div class="pantry-ledger-grid" id="home2PantryGrid"></div>
       </div>
     </section>
 
@@ -291,17 +302,17 @@
     <!-- 9. Shopping-List Planner & Delivery Invitation -->
     <section class="section">
       <div class="container">
-        <div class="split-panel">
-          <div class="split-panel__copy">
+        <div class="planner-invite-band">
+          <div>
             <p class="section-kicker">Dashboard Planner</p>
-            <h2>Keep Your Lists Ready for Every Delivery Window</h2>
-            <p>Save separate lists for Weekly Groceries, Monthly Pantry, or Breakfast Essentials inside the Customer Dashboard. Check off what is already in your fridge and send remaining items straight to Cart.</p>
+            <h2 class="section-title">Keep Your Lists Ready for Every Delivery Window</h2>
+            <p class="section-lead">Save separate lists for Weekly Groceries, Monthly Pantry, or Breakfast Essentials inside the Customer Dashboard. Check off what is already in your fridge and send remaining items straight to Cart.</p>
             <div class="hero-actions">
               <a class="btn btn--primary" href="./dashboard.html#lists">Open Shopping Lists</a>
               <a class="btn btn--outline" href="./delivery.html">Review Delivery Windows</a>
             </div>
           </div>
-          <div class="split-panel__media">
+          <div class="planner-invite-band__media">
             <img src="../assets/images/lifestyle/home2-planner.jpg" alt="Freshly packed wooden crate and basket of weekly groceries" loading="lazy" width="800" height="600" />
           </div>
         </div>
@@ -314,7 +325,7 @@
       <div class="footer-grid">
         <div>
           <a class="brand-mark" href="../index.html">
-            <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126#freshaisle-mark"></use></svg>
+            <svg class="brand-mark__icon" viewBox="0 0 40 40" aria-hidden="true"><use href="../assets/icons/brand-mark.svg?v=20261126b#freshaisle-mark"></use></svg>
             <span class="brand-mark__text">Fresh<span>Aisle</span></span>
           </a>
           <p class="footer-brand-desc">Contemporary neighborhood supermarket storefront with shared frontend cart, shopping lists, demo checkout, and order tracking.</p>
@@ -359,8 +370,8 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>FreshAisle Supermarket · Frontend Storefront &amp; Customer Dashboard</span>
-        <span>Illustrative INR pricing &amp; browser-local demonstration state</span>
+        <span>FreshAisle Supermarket · Everyday Groceries &amp; Weekly Planning</span>
+        <span>Illustrative INR pricing · Demonstration storefront</span>
       </div>
     </div>
   </footer>
@@ -369,11 +380,11 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
   </button>
 
-  <script defer src="../assets/js/site-config.js?v=20261126"></script>
-  <script defer src="../assets/js/products-data.js?v=20261126"></script>
-  <script defer src="../assets/js/offers-data.js?v=20261126"></script>
-  <script defer src="../assets/js/store.js?v=20261126"></script>
-  <script defer src="../assets/js/main.js?v=20261126"></script>
-  <script defer src="../assets/js/pages.js?v=20261126"></script>
+  <script defer src="../assets/js/site-config.js?v=20261126b"></script>
+  <script defer src="../assets/js/products-data.js?v=20261126b"></script>
+  <script defer src="../assets/js/offers-data.js?v=20261126b"></script>
+  <script defer src="../assets/js/store.js?v=20261126b"></script>
+  <script defer src="../assets/js/main.js?v=20261126b"></script>
+  <script defer src="../assets/js/pages.js?v=20261126b"></script>
 </body>
 </html>

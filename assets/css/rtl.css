@@ -30,20 +30,20 @@ html[dir="rtl"] .basket-summary-panel__total {
 html[dir="rtl"] .hero-scrim {
   background: linear-gradient(
     270deg,
-    rgba(16, 20, 17, 0.88) 0%,
-    rgba(16, 20, 17, 0.66) 50%,
-    rgba(16, 20, 17, 0.25) 100%
+    rgba(16, 16, 16, 0.88) 0%,
+    rgba(16, 16, 16, 0.66) 50%,
+    rgba(16, 16, 16, 0.25) 100%
   );
 }
 
 @media (max-width: 1024px) {
-  html[dir="rtl"] .home2-hero__media::after,
+  html[dir="rtl"] .home2-masthead__banner::after,
   html[dir="rtl"] .page-hero--banner-mobile .page-hero__media::after {
     background: linear-gradient(
       270deg,
-      rgba(16, 20, 17, 0.90) 0%,
-      rgba(16, 20, 17, 0.72) 56%,
-      rgba(16, 20, 17, 0.45) 100%
+      rgba(16, 16, 16, 0.90) 0%,
+      rgba(16, 16, 16, 0.72) 56%,
+      rgba(16, 16, 16, 0.45) 100%
     );
   }
 }
